@@ -1,0 +1,110 @@
+/*
+Override de estilos existentes
+*/
+
+/*
+ Corrige el estilo del select2 para que coincida con el estilo de todos los inputs.
+*/
+
+/* En algunos inputs es necesario definir la altura a "mano"
+*/
+$altura_input: 26.7812px ;
+
+.select2-container--bootstrap .select2-selection {
+    font-size: inherit !important;    
+}
+
+/*.select2-container--bootstrap .select2-selection--single*/
+/*deshabilitado:*/
+.select2-container--bootstrapXXXXXXXXXX {
+
+    .select2-selection--single{
+
+        height: $altura_input !important;
+        .select2-selection__rendered{
+            line-height: initial;
+        }
+
+        /*height: inherit !important;*/
+        /*@include fix-select2-input-style;*/
+        /*height: auto !important;*/
+        /*min-height: auto !important;*/
+        .select2-search__field{
+            /*height: inherit !important;*/
+            /*@include fix-select2-input-style;*/
+            /*padding: 0 !important;*/
+        }
+        /*@include fix-select2-input-style-single;*/ 
+    }
+
+
+    .select2-selection--multiple{
+        /*height: inherit !important;*/
+        /*    min-height: auto !important;*/
+        .select2-search__field{
+            height: inherit !important;
+            padding: 0 !important;
+        }
+        @include fix-input-style;  
+
+        .select2-selection__choice{
+            margin: 2px;
+        }
+    }
+
+}
+
+/*.select2-selection .select2-selection--multiple {*/
+/*.select2-container--bootstrap*/ 
+
+.select2-container--bootstrap .select2-selection{
+    /*font-size: $font-size-base !important;*/
+}
+
+
+.select2-container--bootstrap .select2-selection--multiple .select2-search--inline .select2-search__field{
+    /*height: auto !important;*/
+}
+
+div.input-group.date {
+    height: $altura_input !important;
+    
+    input .js-datepicker{
+        @include fix-input-style;       
+    }
+
+    .material-icons{
+        font-size: inherit;        
+    }
+    
+    .input-group-text{
+        height: $altura_input !important;
+    }
+
+}
+
+.position-relative{ position: relative; }
+
+/*Override de estilos de bootstrap:*/
+.font-weight-bold {
+    font-weight: 600 !important;
+}
+
+
+.custom-dropdown-menu-right{
+    right: auto;
+}
+
+.stg-logos-contenedor{
+    visibility: hidden;
+}
+
+.btn{
+    font-size: unset;
+    padding: 0.20rem 0.75rem;
+}
+
+.row-top{
+    padding-top: 70px;
+}
+

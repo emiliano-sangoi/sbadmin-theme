@@ -1,0 +1,182 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18/03/2020, 08:46:30
+    Author     : esangoi
+*/
+
+/*https://css-tricks.com/almanac/properties/b/border-radius/*/
+/*https://codepen.io/kruxor/pen/CwpFq*/
+
+/*
+  Primary color: #108A97
+
+  Transiciones:
+    color:              #787878 -> #585858
+    background-color:   #D3D3D3 -> #C8C8C8
+
+  Color shades: 
+    https://www.w3schools.com/colors/colors_shades.asp
+*/
+
+/*========================================================================================*/
+/*TO TOP BUTTON*/
+.to_top_button{
+    display: none;
+    width: 3em;
+    height: 3em;
+    position:fixed;    
+    background-color: #D3D3D3;
+    bottom:20px;
+    right:20px;
+    color: #787878;
+    z-index: 900;
+    text-align: center;
+    cursor:pointer;    
+}
+
+.to_top_button:hover{
+    background-color: #C8C8C8;    
+    color: #585858;    
+    transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+.to_top_button i{
+    font-size: 3em;
+}
+
+/*========================================================================================*/
+/* FLOATING BUTTONS */
+#floating-buttons{
+    position:fixed;  
+    top: 5em;
+    left: 10px;
+    z-index: 900;
+    width: 3em;
+}
+
+#floating-buttons .fb-button button{    
+    height: 3em;
+    color: #108A97;
+    opacity: .6em;
+}
+
+/*========================================================================================*/
+/* BOTON INDICE */
+
+
+/*#indice{
+    position:fixed;  
+    top: 5em;*/
+/*left: calc(14% - 3em - 2px);*/
+/* left: 10px;
+ z-index: 900;
+ width: 3em;
+ height: 3em;    
+ opacity: .6em;
+}*/
+
+#floating-buttons .fb-indice .dropdown-menu {
+    margin: 0;
+}
+
+#floating-buttons .fb-indice .dropdown-item {
+    /*3em/2 - 24px/2 = 1.5em - 12px*/
+    padding-left: calc(1.5em - 12px);
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+.fb-indice .btn-group:hover>.dropdown-menu {
+    display: block;  
+}
+
+#floating-buttons .fb-indice>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
+/*========================================================================================*/
+/* BOTON AYUDA */
+#floating-buttons .fb-ayuda{
+    /*position:fixed;*/  
+    /*top: 8.5em;*/
+    /*left: calc(14% - 3em - 2px);*/
+    /*left: 10px;*/
+    /*width: 3em;*/
+    height: 3em;        
+    margin-top: .5em;
+}
+
+#floating-buttons .fb-button{
+    opacity: .5;
+}
+
+#floating-buttons .fb-button:hover{
+    opacity: 1;
+}
+
+#floating-buttons .fb-button button i{   
+    color: #108A97;
+}
+
+#floating-buttons .fb-button .btn-secondary{
+    color: black;
+    background-color: #e3e1e2;;
+    border-color: #e3e1e2;
+    border-radius: 0;
+}
+
+/*Ocultar el caret*/
+/*Si aparece a la derecha:*/
+.dropdown-toggle::after {
+    display: none;
+}
+
+
+@media (max-width: 768px){
+    #floating-buttons .fb-button{
+        visibility: hidden
+    }
+}
+
+/*========================================================================================*/
+
+$background: #fff;
+$border: #fff;
+.btn-alternativo {
+    /*
+        @mixin button-variant(
+            $background,
+            $border,
+            $hover-background: darken($background, 7.5%),
+            $hover-border: darken($border, 10%),
+            $active-background: darken($background, 10%),
+            $active-border: darken($border, 12.5%)
+        ) 
+    */
+    @include button-variant($background, $border);
+}
+
+/* ======================================================================================== */
+/* Clipboard */
+
+.cnp img{
+    height: 16px !important;
+}
+
+span.cnp:hover{
+    cursor: pointer;
+}
+
+/* ======================================================================================== */
+/* Clipboard */
+#botones a.btn{
+    margin-bottom: .5rem;
+}

@@ -1,0 +1,32 @@
+{#
+    Archivo original:
+    https://github.com/symfony/symfony/blob/3.4/src/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig
+#}
+
+
+{%- block form_widget_simple -%}
+    {%- set type = type|default('text') -%}
+    <input type="{{ type }}" class="{{ attr.class|default('')  }} form-control" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+{%- endblock form_widget_simple -%}
+
+{%- block form_errors -%}
+    {%- if errors|length > 0 -%}
+        <div class="field-error">
+            {%- for error in errors -%}
+                <div class="">{{ error.message }}</div>
+            {%- endfor -%}
+        </div>
+    {%- endif -%}
+{%- endblock form_errors -%}
+
+{%- block choice_widget_expanded -%}
+    <div {{ block('widget_container_attributes') }}>
+        <span class='form-check my-2'>
+            {%- for child in form %}
+                {{- form_widget(child) -}}
+                {{- form_label(child, null, {translation_domain: choice_translation_domain, 'label_attr': {'class' : 'form-check-label ml-1'} }) -}}
+                <span class="ml-2"></span>           
+            {% endfor -%}
+        </span>
+    </div>
+{%- endblock choice_widget_expanded -%}

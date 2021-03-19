@@ -1,0 +1,34 @@
+# ============================================================================
+# Configuracion de Asprega Breadcrumb
+#asprega_breadcrumb:
+#    template: "@CajaBasicTheme/partials/breadcrumb.html.twig"
+        
+services:
+    Caja\BasicThemeBundle\Twig\BaseExtension:    
+        public: true
+        tags: ['twig.extension']
+        
+framework:    
+    translator: { fallbacks: ['%locale%'] }
+    
+# Twig Configuration
+twig:
+    form_themes:
+        - '@CajaBasicTheme/form/fields.html.twig'
+    # Formatos por defecto:
+    # Ver: https://symfony.com/blog/new-in-symfony-2-7-default-date-and-number-format-configuration
+    date:
+        format: d/m/Y
+        interval_format: '%%d days'
+        timezone: America/Argentina/Buenos_Aires
+    number_format:
+        decimals: 2
+        decimal_point: ','
+        thousands_separator: '.'
+    # Variables globlales:
+    globals:
+        global_empty: '-'
+        global_id_ciud_url: 'https://www.santafe.gob.ar/index.php/tramites/modul1/index?m=descripcion&id=253002'        
+        # estilos bootstrap de tablas: (table-striped, table-bordered,table-hover
+        global_table_style: 'table-hover'
+        bt_logo_gob_stafe: 'https://www.santafe.gob.ar/assets/standard/images/gob-santafe.png'

@@ -1,0 +1,76 @@
+<script>
+
+
+    $(document).ready(function () {
+        // ===========================================================================================
+        // Ajax que permite obtener la ayuda
+
+        /*
+         * Para usar esta ayuda el elemento "clickeado" debe tener el atributo data-codigo con el codigo de la ayuda a traer.
+         */
+        $('.get-ayuda').click(function (event) {
+            var endpoint_ayuda = "{{ endpoint_ayuda }}";
+            onGetAyudaClick(event, endpoint_ayuda);
+        });
+
+    });
+
+
+
+    /**
+     * Callback para el click sobre un link para pedir ayuda.
+     *
+     * @param {type} event
+     * @returns {undefined}
+     */
+    function onGetAyudaClick(event, endpoint_ayuda) {
+        event.preventDefault();
+
+        var element = $(event.target).parent('a');
+        var codigo = element.data('codigo');
+
+        var codigo_ok = typeof codigo === 'string' &&
+                codigo.length > 0;
+
+        if (!codigo_ok) {
+            return;
+        }
+
+        var alert_config = {
+            title: 'Ayuda',
+            message: 'No existen ayudas para mostrar.',
+            size: 'large',
+            backdrop: true,
+            onEscape: true,
+            buttons: {
+                ok: {
+                    label: 'Cerrar',
+                    className: ''
+                }
+            }
+        };
+
+
+        var success = function (ayuda, status) {
+            console.log(ayuda);
+            if (typeof ayuda === 'object') {
+                alert_config.title = ayuda.titulo;
+                alert_config.message = ayuda.texto;
+                bootbox.alert(alert_config);
+            }
+
+        };
+
+        var url = endpoint_ayuda.replace('--CODIGO--', codigo);
+        var jqXHR = $.getJSON(url, success);
+
+        jqXHR.fail(function (jqXHR) {
+            if (jqXHR.status === 404) {
+                bootbox.alert(alert_config);
+            }
+        });
+
+
+    }
+
+</script>

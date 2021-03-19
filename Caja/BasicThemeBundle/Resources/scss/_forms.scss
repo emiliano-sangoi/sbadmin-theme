@@ -1,0 +1,100 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18/03/2020, 09:28:47
+    Author     : esangoi
+*/
+
+form label{ 
+    font-weight: bold;
+}
+
+input[type="radio"]{ 
+    outline: none !important; 
+}
+
+.field-error{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+#form_id_ciudadana_validar{ 
+    position: absolute; 
+    bottom: 0; 
+}
+.domicilio-mas-campos{ 
+    bottom: 30%; 
+    position: absolute; 
+}
+
+#form_cuil_persona_validar{ 
+    position: absolute; 
+    bottom: 0; 
+}
+
+#form_motivo_baja_btnSubmit{ 
+    position: absolute;
+    bottom: 0; 
+}
+
+.form-row{
+    margin-top: $form-row-margin;
+    /*margin-bottom: 1em;*/
+}
+
+.domicilio-campos-extra{
+    /*margin-top: $form-row-margin;*/
+    /*margin-bottom: $form-row-margin;*/
+
+    .form-row:first-child{
+        margin-top: 0;
+    }
+}
+
+.domicilio-campos-extra-btn {
+    i{
+        vertical-align: middle;
+    }
+}
+
+.organismo-campos-extra{
+    /*margin-top: $form-row-margin;*/
+    /*margin-bottom: $form-row-margin;*/
+
+    .form-row:first-child{
+        margin-top: 0;
+    }
+}
+
+.organismo-campos-extra-btn {
+    i{
+        vertical-align: middle;
+    }
+}
+div.form-row:first-child{
+    margin-top: 0;
+}
+
+form{
+    span.requerido{
+        color: $danger;
+        vertical-align: middle;
+    }
+}
+
+
+form #ajustes_ws_wsHabilitado label{
+    margin-right: 1em;
+    margin-left: .2em;
+}
+
+.form-control {    
+    /*font-size: 95%;*/
+    /*@include fix-input-style;*/    
+}
+

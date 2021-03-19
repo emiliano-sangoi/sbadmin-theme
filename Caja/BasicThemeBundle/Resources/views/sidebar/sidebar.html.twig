@@ -1,0 +1,16 @@
+<div id="main-sidebar" class="btn-group-vertical w-100" role="group" aria-label="Barra de navegación">
+
+    {% for item in sidebarItems %}
+        <a class="btn {{ item.getCss() }} py-2 sidebar-item mb-2" 
+           href="{{ item.getHref() }}">            
+
+            {% if item.showIcon()  %}
+                <i class="{{ item.getIcon() }} {{ item.getIconCss() }} mr-1 align-middle" title="{{ item.getIconTitle() }}"></i>
+            {% endif %}
+            <span class="align-middle">
+            {{ item.getLabel() }}
+            </span>
+        </a>
+
+    {% endfor %}
+</div>

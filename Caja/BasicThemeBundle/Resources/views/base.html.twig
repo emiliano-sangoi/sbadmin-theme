@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="es">
+    <head>
+
+        <title>
+            {{ titulo_pagina | default('Titulo de la aplicación') }}
+        </title>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="https://www.santafe.gob.ar/assets/standard/images/favicon.ico">
+
+        {% block css %}
+
+            <!-- Estilos personalizado + Bootstrap v4: -->
+            <link rel="stylesheet" href="{{ asset('bundles/cajabasictheme/css/custom.css') }}" type="text/css">
+
+            <!-- DatePicker para Bootstrap 4 https://tempusdominus.github.io/bootstrap-4/Installing/ -->
+            <link rel="stylesheet" href="{{ asset('bundles/cajabasictheme/node_modules/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css') }}" type="text/css">
+
+            <!-- bootstrap v4 CSS -->
+            {#            <link rel="stylesheet" href="{{ asset('bundles/cajabasictheme/node_modules/bootstrap/dist/css/bootstrap.min.css') }}" type="text/css">#}
+
+            <!-- Select2 -->
+            <!-- https://select2.org/ -->
+            <link rel="stylesheet" href="{{ asset('bundles/cajabasictheme/node_modules/select2/dist/css/select2.min.css') }}" type="text/css">
+
+            <!-- Select 2 - Bootstrap theme -->
+            <link rel="stylesheet" href="{{ asset('bundles/cajabasictheme/node_modules/select2-theme-bootstrap4/dist/select2-bootstrap.min.css') }}" type="text/css">
+
+            <!-- bootstrap4-toggle/ -->
+            <!-- https://gitbrent.github.io/bootstrap4-toggle/ -->
+            <link rel="stylesheet" href="{{ asset('bundles/cajabasictheme/node_modules/bootstrap4-toggle/css/bootstrap4-toggle.min.css') }}" type="text/css">
+
+            <!-- Bootstrap icons -->
+            <!-- https://icons.getbootstrap.com/ -->
+            <link rel="stylesheet" href="{{ asset('bundles/cajabasictheme/node_modules/bootstrap-icons/font/bootstrap-icons.css') }}" type="text/css">
+
+            <!-- Material icons -->
+            <link rel="stylesheet" href="{{ asset('bundles/cajabasictheme/node_modules/material-icons/iconfont/material-icons.css') }}" type="text/css">
+
+            <!-- Manejo de Tags -->
+            <!-- https://github.com/yairEO/tagify -->
+            <link rel="stylesheet" href="{{ asset('bundles/cajabasictheme/node_modules/@yaireo/tagify/dist/tagify.css') }}" type="text/css">
+
+            <!-- Font awesome -->
+            <link rel="stylesheet" href="{{ asset('bundles/cajabasictheme/node_modules/font-awesome/css/font-awesome.min.css') }}" type="text/css">
+
+            <!-- assets fonts -->
+            <link rel="stylesheet" href="https://www.santafe.gob.ar/assets/standard/css/fonts.css" type="text/css">
+
+            <style>
+
+                .material-icons {
+                    font-family: 'Material Icons';
+                    font-weight: normal;
+                    font-style: normal;
+                    font-size: 24px;
+                    line-height: 1;
+                    letter-spacing: normal;
+                    text-transform: none;
+                    display: inline-block;
+                    white-space: nowrap;
+                    word-wrap: normal;
+                    direction: ltr;
+                    -moz-font-feature-settings: 'liga';
+                    -moz-osx-font-smoothing: grayscale;
+                }
+
+
+            </style>
+
+        {% endblock %}
+
+
+    </head>
+
+    <body>
+
+        {% block nav %}
+            {% include '@CajaBasicTheme/navbar/nav.html.twig' %}
+        {% endblock %}
+
+        <div id="notificaciones" class="">
+            {% block notificaciones %}
+                {% import "@CajaBasicTheme/macros.html.twig" as macros %}
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        {{ macros.notificacion(message, label) }}
+                    {% endfor %}
+                {% endfor %}
+                {%if error is defined and error is not null %}
+                    {{ macros.notificacion(error, 'danger', false) }}
+                {%endif%}
+            {% endblock %}
+        </div>
+
+        {% block main %}
+
+            <div class="container-fluid container-lg px-lg-0" style="margin-top: 6rem; margin-bottom: 3rem;">
+
+                <div id="header" class="">
+
+                    {% block breadcrumb %}
+                    {% endblock %}
+
+                    <h1 class="font-weight-bold mb-0" id="pagina-titulo-principal">
+                        {% if app.user.activo is defined and app.user.activo == false %}
+                            Usuario inactivo
+                        {% else %}
+                            {{ titulo_pagina | default('Titulo de la aplicación') }}
+                            {%  if subtitulo is defined %}
+                                <span class="align-middle">&middot;</span> <small class="text-light align-middle">{{ subtitulo }}</small>
+                            {% endif %}
+
+                            {% if codigo_ayuda_principal|default(false) %}
+                                <span class="ayuda-principal">
+                                    <span class="action">
+                                        {% from '@CajaBasicTheme/macros.html.twig' import link_ayuda %}
+                                        {{ link_ayuda(codigo_ayuda_principal) }}
+                                    </span>
+                                </span>
+
+                            {% endif %}
+                        {% endif %}
+                    </h1>
+                </div>
+
+                {% block contenedor %}
+                    <div id="main" class="">
+
+                        <div class="row">
+
+                            {% set tieneSidebar = sidebarItems is defined and sidebarItems|length > 0 %}
+
+                            {% if tieneSidebar %}
+                                <div class="col-12 col-lg-2">
+                                    <div class="mt-3">
+                                        {% block sidebar %}
+                                            {% include '@CajaBasicTheme/sidebar/sidebar.html.twig' %}
+                                        {% endblock %}
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            <div class="col-12 {{ tieneSidebar ? 'col-lg-10' : 'col-lg-12'}}">
+
+                                <div id="pagina-descripcion" class="mt-3">
+
+                                    {% if app.user.activo is defined and app.user.activo == false %}
+                                        <p class="my-lg-3">
+                                            Su cuenta de usuario: <span class="font-weight-bold">{{ app.user.username }}</span> se encuentra <em>INACTIVA</em>. Los usuarios inactivos no pueden realizar ninguna acci&oacute;n en el sistema.
+                                        </p>
+                                    {% else %}
+
+                                        <div id="titulo">
+                                            {% block titulo %}
+                                            {% endblock %}
+                                            {# {% block separador %}
+                                                 <hr class="mt-0"/>
+                                             {% endblock %}#}
+                                        </div>
+                                        <div id="descripcion" class="">
+                                            {% block descripcion %}
+                                            {% endblock %}
+                                        </div>
+
+                                        <div id="botones" class="">
+                                            {% block botones %}
+                                                {# Acciones como crear organismo, nueva liquidacion, etc. #}
+
+                                                {#
+                                                  IMPORTANTE:
+                                                  Al sobrescribir incluir como primer elemento un div para que se
+                                                  aplique el padding/margin correctos.
+                                                #}
+                                            {% endblock %}
+                                        </div>
+                                    {% endif %}
+
+                                </div>
+
+                                <div id="block_content" class="pb-5">
+                                    {% block content %}
+                                        {% if app.user.activo is defined and app.user.activo %}
+                                            {% block body %}{% endblock %}
+                                        {% endif %}
+                                    </div>
+                                {% endblock %}
+                            </div>
+                        </div>
+
+
+                        {% block backTop %}
+                            <div class='to_top_button'>
+                                <i class="material-icons">keyboard_arrow_up</i>
+                            </div>
+                        {% endblock %}
+
+                    </div>
+                {% endblock %}
+
+            {% endblock %}
+
+        </div>
+
+
+        {% block javascript %}
+
+            <!-- JQuery -->
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/jquery/dist/jquery.min.js') }}"></script>
+
+            <!-- Popper.js -->
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/popper.js/dist/umd/popper.min.js') }}"></script>
+
+            <!-- Bootstrap v4 -->
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+            <!-- https://momentjs.com/ Necesaria para: tempusdominus-bootstrap-4 -->
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/moment/min/moment-with-locales.min.js') }}"></script>
+
+            <!-- tempusdominus-bootstrap-4 DatePicker para Bootstrap 4  -->
+            <!-- https://tempusdominus.github.io/bootstrap-4/ -->
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+
+            <!-- Select2 -->
+            <!-- https://select2.org/ -->
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/select2/dist/js/select2.full.min.js') }}"></script>
+
+            <!-- bootbox code -->
+            <!-- http://bootboxjs.com/ -->
+            <!-- Libreria para crear ventanas de dialogos y confirmacion -->
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/bootbox/dist/bootbox.min.js') }}"></script>
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/bootbox/dist/bootbox.locales.min.js') }}"></script>
+
+            <!-- Plugin JavaScript -->
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/jquery.easing/jquery.easing.min.js') }}"></script>
+
+            <!-- bootstrap4-toggle/ -->
+            <!-- https://gitbrent.github.io/bootstrap4-toggle/ -->
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/bootstrap4-toggle/js/bootstrap4-toggle.min.js') }}"></script>
+
+            <script src="{{ asset('bundles/cajabasictheme/js/custom.js') }}"></script>
+
+            <!-- Cuadros de dialogos para alertas, prompts, confirmación de alguna accion, etc. -->
+            <script src="{{ asset('bundles/cajabasictheme/js/modals.js') }}"></script>
+
+            <!-- Input Mask -->
+            <!-- https://github.com/RobinHerbots/Inputmask -->
+            <!-- Ejemplo: https://robinherbots.github.io/Inputmask/ -->
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/inputmask/dist/jquery.inputmask.min.js') }}"></script>
+
+            <!-- Clipboard.js -->
+            <!-- https://clipboardjs.com/ -->
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/clipboard/dist/clipboard.min.js') }}"></script>
+
+            <!-- Tags -->
+            <!-- https://github.com/yairEO/tagify -->
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/@yaireo/tagify/dist/tagify.min.js') }}"></script>
+
+            {# ======================================================================================================== #}
+            {# https://www.highcharts.com/ #}
+            {# Liberia para realizar graficos #}
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/highcharts/highcharts.js') }}"></script>
+
+            {# El siguiente modulo habilita las funcionalides para exportar a JPG, PNG, PDF, SVG #}
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/highcharts/modules/exporting.js') }}"></script>
+
+            {# El siguiente modulo habilita las opciones: Download CSV, Download XLS y View data table en el menu #}
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/highcharts/modules/export-data.js') }}"></script>
+
+            {# El siguiente modulo habilita algunas funciones de pantalla completa y dialogo de imprimir #}
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/highcharts/modules/accessibility.js') }}"></script>
+            
+            {% block ayuda_js %}
+                {# Modal para mostrar ayuda a partir del código #}
+                {% include '@CajaBasicTheme/ayuda/ayuda-modal.html.twig' with { 'endpoint_ayuda' : path('caja_usuarios_ws_ayuda_por_codigo',{'codigo': '--CODIGO--'}) } %}
+            {% endblock %}
+            
+            {# ======================================================================================================== #}
+
+            <script>
+                $(document).ready(function () {
+
+                    //Básico:
+                    //    $('#datetimepicker-simple').datetimepicker({locale: 'es'});
+
+                    // Solo tiempo:
+                    //    $('#datetimepicker-timeony').datetimepicker({format: 'LT'});
+                    new ClipboardJS('.cnp');
+
+
+                    // Input Mask
+                    // https://github.com/RobinHerbots/Inputmask
+                    // Ejemplo: https://robinherbots.github.io/Inputmask/
+                    $('.enmascarar-cuit').inputmask({
+                        //"mask": "*{1,3}[.*{8}]"
+                        "mask": "*{2}-*{8}-*{1}",
+                        "placeholder": "_"
+                    });
+                    $('.enmascarar-cuil').inputmask({
+                        //"mask": "*{1,3}[.*{8}]"
+                        "mask": "*{2}-*{8}-*{1}",
+                        "placeholder": "_"
+                    });
+
+                    // Mascara para nro de expediente:
+                    $('.enmascarar-nro-expte').inputmask({
+                        //"mask": "*{1,3}[.*{8}]"
+                        "mask": "*{5}-*{7}-*{1}",
+                        "placeholder": "_"
+                    });
+
+                    // Máscara para fechas en formato dd/mm/yyyy:
+                    // https://github.com/RobinHerbots/Inputmask/blob/5.x/README_date.md
+                    $('.enmascarar-fecha').inputmask({
+                        "alias": "datetime",
+                        "mask": "99/99/9999",
+                        "placeholder": "dd/mm/yyyy",
+                    });
+
+
+
+                });
+
+
+            </script>
+
+        {% endblock %}
+
+
+    </body>
+
+</html>
+
+

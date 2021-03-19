@@ -1,0 +1,55 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13/04/2020, 11:35:05
+    Author     : esangoi
+*/
+
+.bootbox{
+    $aux: .8rem;
+
+    .modal-header{
+        /*padding: $font-size-base * .6;*/
+        /*padding-left: 1rem + $aux;*/
+        /*padding-right: 1rem + $aux;*/
+        /*background-color: $gray-1;*/
+        
+        i.material-icons{
+            vertical-align: middle;
+            font-size: 1.1rem;
+        }
+        
+        .modal-title{
+            font-size: 1.1rem;
+            line-height: initial;
+            /*margin-bottom: 0;*/
+        }
+        
+/*        .close {
+            padding: $font-size-base * .6;
+            margin: 0;
+        }*/
+    }
+    .modal-body .bootbox-body{
+        padding-left: $aux;
+        padding-right: $aux;
+        
+        h3{
+            font-size: 1.3rem;            
+            margin-bottom: 1rem;
+        }
+        
+        label{
+            font-weight: bold;
+        }
+        
+        p{
+            font-size: initial;
+            margin-bottom: .5rem;
+        }
+    }
+}
+

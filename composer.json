@@ -1,0 +1,48 @@
+{
+    "name": "caja/basic-theme-bundle",
+    "type": "bundle",
+    "description": "Bundle para la gestión y consultas de ayudas y etiquetas.",
+    "keywords": [
+        "bundle",
+        "Symfony",
+        "php",
+        "theme",
+        "bootstrap"
+    ],
+    "homepage": "https://git.santafe.gov.ar/mtyss/basic-theme-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Emiliano Sangoi",
+            "email": "esangoi@santafe.gob.ar"
+        },
+        {
+            "name": "Eliana Mossimann",
+            "email": "esangoi@santafe.gob.ar"
+        },
+        {
+            "name": "Lauriana Cattaneo",
+            "email": "esangoi@santafe.gob.ar"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "autoload": {
+        "psr-0": {
+            "Caja\\BasicThemeBundle\\": ""
+        }
+    },
+    "config": {
+        "bin-dir": "bin",
+        "sort-packages": true,
+        "secure-http": false
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "repositories": [
+    ]
+}

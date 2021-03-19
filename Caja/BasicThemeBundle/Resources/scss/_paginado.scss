@@ -1,0 +1,12 @@
+
+.pagination{
+    margin-top: 1rem;
+    margin-bottom: 0 !important;
+    background-color: $white;
+
+    justify-content: center;
+    align-items: center;
+
+    /*@include centerer(true, false);*/
+
+}

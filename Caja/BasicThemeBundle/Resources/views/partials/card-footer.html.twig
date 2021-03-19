@@ -1,0 +1,20 @@
+<div id="otras-acciones">
+    <div class="card rounded-0">
+        <div class="card-header border-left-0 border-right-0 border-bottom-0" id="headingOtrasAcciones">
+            <h5 class="mb-0 text-right">
+                <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOtrasAcciones" aria-expanded="false" 
+                   aria-controls="collapseOtrasAcciones" style="text-decoration: none;vertical-align: sub;">                    
+                    Otras acciones
+                    <i class="bi-caret-down-fill"></i>
+                </a>
+            </h5>
+        </div>
+
+        <div id="collapseOtrasAcciones" class="collapse" aria-labelledby="headingOtrasAcciones" data-parent="#otras-acciones">
+            <div class="card-body">
+                {% block otras_acciones %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>           
+</div>

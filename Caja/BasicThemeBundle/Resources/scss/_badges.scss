@@ -1,0 +1,7 @@
+.badge-gray-1{
+    @include badge-variant($gray-1);
+}
+
+.badge-gray-2{
+    @include badge-variant($gray-2);
+}

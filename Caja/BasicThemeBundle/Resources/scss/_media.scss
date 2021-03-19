@@ -1,0 +1,54 @@
+/*
+ Media querys globales
+*/
+/*@media (min-width: 1200px)
+.container {
+    max-width: 1140px;
+}*/
+
+@media (min-width: 1200px){
+
+    #header.container, #main.container {            
+        max-width: 80%;
+    }
+    
+/*    #header.container {    
+        padding-top: 70px;        
+    }*/
+
+    nav .container {        
+        /*        width: 72%;
+                background-color: inherit !important;
+                padding-left: 2em;
+                padding-right: 2em;*/
+        /*        padding-left: 1em;
+                padding-right: 0;*/
+    }
+}
+
+@media (max-width: 1200px){
+    main.container {        
+        width: inherit;
+    }
+
+    nav .container {        
+        /*        width: inherit;
+                background-color: inherit !important;
+                padding-left: .5em;
+                padding-right: .5em;*/
+    }
+}
+
+@media (max-width: 768px){
+    
+    #main{
+        padding-left: .2em;
+        padding-right: .2em;
+    }
+
+    #header {
+        padding-left: .2em;
+        padding-right: .2em;
+    }
+    
+}

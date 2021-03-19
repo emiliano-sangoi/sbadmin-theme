@@ -1,0 +1,215 @@
+<!-- Botones  -->
+{% macro btn_link(href = '#', label = "Guardar cambios", icon = '', style = "primary", class = "", title = "") %}
+    <a class="btn btn-{{ style }} {{ class }}" href="{{ href }}" title="{{ title }}">
+        {% if icon != '' %}
+            {#            <i class="material-icons">{{ icon }}</i>#}
+            <i class="{{ icon }}"></i>
+        {% endif %}
+        {{ label|raw }}
+    </a>
+{% endmacro %}
+
+{% macro btn_link_sm(href = '#', label = "Definir label!", icon = '', style = "primary", class = "", title = "") %}    
+    {% from '@CajaBasicTheme/macros.html.twig' import btn_link %}
+    {{ btn_link(href, label, icon, style, class ~ ' btn-sm ', title) }}    
+{% endmacro %}
+
+{% macro btn_link_sm_outline(href = '#', label = "Definir label!", icon = '', style = "primary", class = "", title = "") %}    
+    {% from '@CajaBasicTheme/macros.html.twig' import btn_link %}
+    {{ btn_link(href, label, icon, 'outline-' ~ style, class ~ ' btn-sm ', title) }}    
+{% endmacro %}
+
+{% macro btn_base(label, style = "primary", icon = '', btn_type = "button", class = "", title = "") %}
+    <button type="{{ btn_type }}" class="btn btn-{{ style }} {{ class }}" title="{{ title }}">
+        {% if icon %}
+            <i class="material-icons">{{ icon }}</i>
+        {% endif %}
+        {{ label|raw }}
+    </button>
+{% endmacro %}
+
+{#{% macro btn_sm_vista_previa(href = '#', label = "Definir label!", icon = '', style = "primary", class = "", title = "") %}    
+    {% from '@CajaBasicTheme/macros.html.twig' import btn_base %}
+    {{ btn_base(label, 'primary',  icon, btn_type, class ~ ' btn-vista-previa ', title) }}   
+{% endmacro %}#}
+
+{% macro btn_primary(label, icon = 'info', btn_type = "button", class = "", title = "") %}    
+    {% from '@CajaBasicTheme/macros.html.twig' import btn_base %}
+    {{ btn_base(label, 'primary',  icon, btn_type, class, title) }}
+{% endmacro %}
+
+{% macro btn_success(label, icon = '', btn_type = "button", class = "", title = "") %}    
+    {% from '@CajaBasicTheme/macros.html.twig' import btn_base %}
+    {{ btn_base(label, 'success',  icon, btn_type, class, title) }}
+{% endmacro %}
+
+{% macro btn_warning(label, icon = '', btn_type = "button", class = "", title = "") %}    
+    {% from '@CajaBasicTheme/macros.html.twig' import btn_base %}
+    {{ btn_base(label, 'warning',  icon, btn_type, class, title) }}
+{% endmacro %}
+
+{% macro btn_danger(label, icon = '', btn_type = "submit", class = "", title = "") %}    
+    {% from '@CajaBasicTheme/macros.html.twig' import btn_base %}
+    {{ btn_base(label, 'danger',  icon, btn_type, class, title) }}
+{% endmacro %}
+
+{% macro btn_danger_with_confirm(label, dialog_title = 'Confirmar acción', dialog_msg , btn_type = "submit", class = "", title = "", icon = '') %}    
+    <button type="{{ btn_type }}" class="btn btn-danger {{ class }} pedir-confirmacion" title="{{ title }}" data-dialog_title="{{ dialog_title }}" data-dialog_message="{{ dialog_msg }}">
+        {% if icon %}
+            <i class="material-icons">{{ icon }}</i>
+        {% endif %}
+        {{ label|raw }}
+    </button>
+{% endmacro %}
+
+{% macro btn_with_confirm(label, dialog_title = 'Confirmar acción', dialog_msg , style = 'primary', btn_type = "submit", class = "", title = "", icon = '') %}    
+    <button type="{{ btn_type }}" class="btn btn-{{ style }} {{ class }} pedir-confirmacion" title="{{ title }}" data-dialog_title="{{ dialog_title }}" data-dialog_message="{{ dialog_msg }}">
+        {% if icon %}
+            <i class="material-icons">{{ icon }}</i>
+        {% endif %}
+        {{ label|raw }}
+    </button>
+{% endmacro %}
+
+{# Boton para volver atrás usando JS #}
+{% macro btn_volver_js(label = 'Volver', style = "secondary", class = "", title = "", icon = '') %}     
+    <button class="back-btn btn btn-{{ style }} {{ class }}" title="{{ title }}">
+        {% if icon %}
+            <i class="material-icons">
+                {{ icon }}
+            </i>
+        {% endif %}
+        {{ label }}
+    </button>
+{% endmacro %}
+
+{% macro btn_ayuda(codigo, dialog_title = "Ayuda", btn_label = "Consultar", style = 'primary', class = "") %}
+    <button class="btn btn-{{ style }} get-ayuda {{ class }}" data-codigo="{{ codigo }}" data-titulo="{{ dialog_title }}">
+        {{ btn_label|raw }}
+    </button>
+{% endmacro %}
+
+{% macro btn_ayuda_sm(codigo, btn_label = "Consultar", style = 'primary', class = "") %}
+    <button class="btn btn-outline-{{ style }} get-ayuda {{ class }} btn-sm" data-codigo="{{ codigo }}">
+        {{ btn_label|raw }}
+    </button>
+{% endmacro %}
+
+{#
+    Permite copiar cierto valor al portapapeles.
+    value: Valor que sera copiado al portapapeles.
+#}
+{% macro btn_cnp( value ) %}
+    <span class="cnp" data-clipboard-text="{{ value }}" data-toggle="tooltip" title="Copiar al portapapeles">    
+        <img src="{{ asset('bundles/siafcatheme/images/clippy.svg') }}"/>
+    </span>
+{% endmacro %}
+
+<!-- ====================================================================================== -->
+<!-- Alertas  -->
+
+{% macro alert_dismissible(style = "success", titulo = '', descripcion = '' ) %}
+    <div class="alert alert-{{ style }} alert-dismissible fade show" role="alert">
+        <strong> {{ titulo }} </strong>
+        {{ descripcion }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endmacro %}
+
+<!-- ====================================================================================== -->
+<!-- Notificaciones  -->
+{% macro notificacion(msg, label = "success", auto_dismiss = true, strong_txt = '') %}
+    <div class="alert alert-{{ label }} alert-dismissible fade show {{ auto_dismiss ? 'auto-dismiss-notification' : '' }}" role="alert">
+        {% if strong_txt %}
+            <strong> {{ strong_txt }} </strong>
+        {% endif %}       
+        {{ msg|raw }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endmacro %}
+
+<!-- ====================================================================================== -->
+<!-- Cards  -->
+{# Modelos mas complejos se pueden separar en plantillas en partials/ #}
+{% macro card_simple(body = "", text_muted = true, class = '', padding = 'py-3 px-3' ) %}
+    <div class="card">
+        <div class="card-body {{ padding ~ ' ' ~ class  }} {{ text_muted ? 'text-muted' : '' }}">
+            {{ body }}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro card_id_ciudadana(datosIdCiudadana) %}    
+
+    {% embed "@CajaBasicTheme/partials/card-basica.html.twig" with { 'codigo_ayuda' : '5e8a3080db0b4' } %}        
+
+        {% block card_header %}
+            Datos del sistema de ID ciudadana
+        {% endblock %}
+
+        {% block card_body %}
+            {% if datosIdCiudadana %}
+                {% from '@CajaBasicTheme/macros.html.twig' import card_box %}
+                <div class="form-row">                    
+                    {{ card_box('Nombre y Apellido', datosIdCiudadana.nombre|lower|ucwords|default(global_empty),  'col-md-4') }}
+                    {{ card_box('CUIL', datosIdCiudadana.cuil|cuit|default(global_empty),  'col-md-4') }}
+                    {{ card_box('Correo electrónico', datosIdCiudadana.mail,  'col-md-4', false, true) }}
+                </div> 
+            {% else %}                
+                <div class='text-muted'>
+                    No se encontraron datos en el Sistema de ID ciudadana para el usuario.
+                </div>
+            {% endif%}
+        {% endblock %}
+
+    {% endembed %}
+
+{% endmacro %}
+
+<!-- ====================================================================================== -->
+<!-- Otras  -->
+
+{% macro textarea(name, value, rows = 10, cols = 40) %}
+    <textarea name="{{ name }}" rows="{{ rows }}" cols="{{ cols }}">{{ value|e }}</textarea>
+{% endmacro %}
+
+{# Utilizado dentro de los cards para mostrar información #}
+{% macro card_box(label, text, box_class = '', raw = false, cnp_allow = false, cnp_target_id = 'target', text_class = '', label_class = 'font-weight-bold') %}
+    <div class="{{ box_class }} card-box">
+        <label class="{{ label_class }} mb-0" >    
+            {{ label }}
+        </label>
+
+        <div class="{{ text_class }}">   
+
+            {% if raw %}
+                {{ text|default(global_empty)|raw }}
+            {% else %}
+
+                {{ text|default(global_empty) }}
+
+                {% if cnp_allow %}                
+                    {% from '@CajaBasicTheme/macros.html.twig' import btn_cnp %}
+                    {{ btn_cnp( text ) }}            
+                {% endif %}            
+
+            {% endif %}
+        </div>    
+    </div>    
+{% endmacro %}
+
+{% macro link_ayuda(codigo, class = '', icon='bi-question-circle', icon_class = 'text-light') %}
+    <a href="#" class="get-ayuda {{ class }}" data-codigo="{{ codigo }}">
+        {% if icon %}
+            <i class="{{ icon }}"></i>
+        {% endif %}
+    </a>
+{% endmacro %}
+
+{% macro requerido() %}
+    <span class='requerido text-danger' title='Este campo es obligatorio'>*</span>
+{% endmacro %}
