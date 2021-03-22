@@ -273,9 +273,7 @@
             {# El siguiente modulo habilita algunas funciones de pantalla completa y dialogo de imprimir #}
             <script src="{{ asset('bundles/cajabasictheme/node_modules/highcharts/modules/accessibility.js') }}"></script>
             
-            {% block ayuda_js %}
-                {# Modal para mostrar ayuda a partir del código #}
-                {% include '@CajaBasicTheme/ayuda/ayuda-modal.html.twig' with { 'endpoint_ayuda' : path('caja_usuarios_ws_ayuda_por_codigo',{'codigo': '--CODIGO--'}) } %}
+            {% block ayuda_js %}                
             {% endblock %}
             
             {# ======================================================================================================== #}
