@@ -1,5 +1,14 @@
 $(document).ready(function () {
 
+
+//    $('#datetimepicker1').datetimepicker();
+    $('#datepicker').datetimepicker({
+        format: 'L', //formato: DD/MM/YYYY
+        locale: 'es',
+        viewMode: 'years', // el usuario selecciona: Año, luego Mes y luego Día
+    });
+
+
     // Select2
     // https://select2.org/
     // Definir Bootstrap por default para todos los selects:

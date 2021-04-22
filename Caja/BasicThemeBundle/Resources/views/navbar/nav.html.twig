@@ -3,6 +3,15 @@
         <span class="d-block font-weight-bold">SIAFCA</span>
     </a>#}
     <a class="navbar-brand" href="#">
+        {% if caja_usuarios_app_service is defined %}
+            {%  set current_app = caja_usuarios_app_service.getPorCodigo() %}
+            {% if current_app %}
+                {% set bt_app_name = current_app.nombre %}
+                {% set bt_app_version = current_app.version %}
+            {% endif %}
+        {% endif %}
+
+
         {% block navbar_logo %}
             <img src="{{ bt_logo_gob_stafe|default('') }}" alt="Santa Fe">
         {% endblock %}
@@ -13,7 +22,7 @@
                 {% endblock %}
                 <small class="text-muted">
                     {% block navbar_app_version %}
-                        {{ bt_app_version|default('v1.0') }}
+                        {{ bt_app_version|default('v0.0') }}
                     {% endblock %}
                 </small>
             </div>
