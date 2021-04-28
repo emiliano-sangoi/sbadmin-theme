@@ -2,9 +2,11 @@
 {# 
     https://getbootstrap.com/docs/4.0/components/card/
 #}
-<div class="card">
-    <div class="card-body">
+{#<div class="card">
+    <div class="card-body">#}
+<div class='alert border alert-light {{ y_padding is defined ? y_padding : 'py-2' }} text-dark'>
         {% block card_body %}            
         {% endblock card_body %}
-    </div>
 </div>
+{#    </div>
+</div>#}

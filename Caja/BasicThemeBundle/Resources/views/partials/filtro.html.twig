@@ -1,0 +1,15 @@
+<fieldset class="border border-gray px-4 pt-2 pb-3 pb-lg-4">
+    <legend class="h3 px-3 mb-0 text-secondary w-auto" >
+        {{ filter_legend|default('Filtros') }}
+    </legend>
+
+    {% block filter_body %}
+
+    {% endblock %}
+
+
+    {% block filter_actions %}
+
+    {% endblock %}
+
+</fieldset>
