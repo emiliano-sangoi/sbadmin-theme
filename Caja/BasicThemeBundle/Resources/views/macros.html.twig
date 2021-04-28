@@ -213,35 +213,3 @@
 {% macro requerido() %}
     <span class='requerido text-danger' title='Este campo es obligatorio'>*</span>
 {% endmacro %}
-
-{# 
-    Macro para un date/datetime picker
-    Recieve como primer argumento el input del formulario, luego un id y por ultimo si se va a utilizar como fecha o fecha y hora.
-    Ejemplo de utilización:
-            {% from '@CajaBasicTheme/macros.html.twig' import input_datetime_picker %}
-            {{ input_datetime_picker(form.fecha, 'datepicker', true) }}
-#}
-{% macro input_datetime_picker(form_field, html_id, date_only = false ) %}     
-
-    {{ form_label( form_field, form_field.vars.label, { label_attr: {'for' : html_id } }) }}
-
-    <div class="input-group date {{ date_only ? 'tempusdominus-datepicker' : 'tempusdominus-datetimepicker' }}" id="{{ html_id }}" data-target-input="nearest">
-        {{ form_widget(form_field, { 
-        attr: {
-            'data-target': '#' ~ html_id,
-            'class': 'form-control datetimepicker-input ',
-            'onload' : 'hola()'
-        }
-      })
-        }}
-        <div class="input-group-append" data-target="#{{ html_id }}" data-toggle="datetimepicker">
-            <div class="input-group-text" style="height: 100% !important;">
-                <i class="fa fa-calendar"></i>
-            </div>
-        </div>
-    </div>
-    <div>
-        {{ form_errors( form_field ) }}
-    </div>
-
-{% endmacro %}

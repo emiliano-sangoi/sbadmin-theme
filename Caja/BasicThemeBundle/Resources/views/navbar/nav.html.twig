@@ -87,7 +87,6 @@
                     </div>
 
                 </li>#}    
-
                 <li class="nav-item dropdown">
                     <a href="#" class="dropdown-toggle" id="dropdownMenuLinkPerson" data-toggle="dropdown"
                        aria-haspopup="true"
@@ -96,7 +95,9 @@
                         <i class="bi-person-circle align-text-bottom" style="font-size: 1.7rem;"></i>                        
                     </a>
                     <div class="dropdown-menu custom-dropdown-menu-right" aria-labelledby="dropdownMenuLinkPerson">
-                        <a class="dropdown-item disabled" href="#">Perfil</a>
+                        <a class="dropdown-item get-info-usuario" href="#" data-username="{{ app.user ? app.user.username : '' }}">
+                            Mis datos
+                        </a>
                         <a class="dropdown-item disabled" href="#">Configuración</a>                        
                         <div class="dropdown-divider"></div>
                         <a href="{{ logout_route is defined ? path(logout_route) : '#' }}" class="dropdown-item on-cerrar-sesion" title="Cerrar sesión">
