@@ -15,8 +15,10 @@ $(document).ready(function () {
     //https://www.npmjs.com/package/select2-theme-bootstrap4
     $.fn.select2.defaults.set("theme", "bootstrap");
     $('.select2-basico').select2({
-        //   placeholder: 'Elija una opción',
-        //allowClear: true,
+        width: null,
+        containerCssClass: ':all:'
+                //   placeholder: 'Elija una opción',
+                //allowClear: true,
     });
 
     // Cuando cambia el departamento se debe actualizar el listado de localidades

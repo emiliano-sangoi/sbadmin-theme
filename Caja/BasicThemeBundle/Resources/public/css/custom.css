@@ -8182,10 +8182,6 @@ form #ajustes_ws_wsHabilitado label {
   margin-right: 1em;
   margin-left: .2em; }
 
-.form-control {
-  /*font-size: 95%;*/
-  /*@include fix-input-style;*/ }
-
 /*
 Estilos para tablas
 */

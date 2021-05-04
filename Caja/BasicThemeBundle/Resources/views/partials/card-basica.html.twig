@@ -3,25 +3,59 @@
     https://getbootstrap.com/docs/4.0/components/card/#titles-text-and-links
 #}
 <div class="card card-basica rounded border-0">
+    
+   
+    
+    
+    
     <h2 class="card-header {{ card_header_css is defined ? card_header_css : 'bg-secondary text-light'}} font-weight-bold">
         {% block card_header %}
             {{ card_header_content|default('Información básica') }}
         {% endblock %}
 
-        {#        {{ dump(codigo_ayuda|default(false)) }}#}
-        {% if codigo_ayuda|default(false) %}
-            {% from '@CajaBasicTheme/macros.html.twig' import link_ayuda %}
-            <span class="action">
+        <span class="action centrate-y">
+            {% block card_actions %}            
+                
+
+                {#                {% if codigo_ayuda|default(false) %}#}
+                <span class="d-inline-block">
+                {% from '@CajaBasicTheme/macros.html.twig' import link_ayuda %}
                 {{ link_ayuda(codigo_ayuda) }}
-            </span>
-        {% endif %}
+                </span>
+                {#      {% endif %}#}
+                
+                <span class="d-inline-block">
+                {% block eliminar_action %}
+                {% endblock %}
+                </span>
+                
+                {% if dropdown_visible|default(false) %}                    
+                    <div class="dropdown d-inline-block">                        
+                        <a class="dropdown-toggle p-0" style="cursor: pointer;" id="{{ dropdown_id|default('dropdownId') }}Button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                        
+{#                            <i class="bi-caret-down-fill small"></i>#}
+{#                            <i class="bi-three-dots small"></i>#}
+                            <i class="bi-list small"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="{{ dropdown_id|default('dropdownId') }}Button" style="z-index: 100000 !important;">
+                            {% block dropdown_items %}
+                                {#<a class="dropdown-item text-dark" href="#">Action</a>
+                                <a class="dropdown-item text-dark" href="#">Another action</a>
+                                <a class="dropdown-item text-dark" href="#">Something else here</a>#}
+                            {% endblock %}
+                        </div>
+                    </div>
+                {% endif %}
+
+
+            {% endblock %}
+        </span>
 
         {#        {% if cardHeaderAction|default(false) %}
-                    <span class="action">
+                   
                         <a href="{{ cardHeaderAction.href|default('#') }}" id="card-header-action">
                             <i class="material-icons">{{ cardHeaderAction.icon|default('help') }}</i>
                         </a>
-                    </span>
+                   
                 {% endif %}#}
     </h2>
 

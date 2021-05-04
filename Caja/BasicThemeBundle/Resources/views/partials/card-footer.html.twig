@@ -1,16 +1,21 @@
-<div id="otras-acciones">
+{% if accordion_id is not defined %}
+    {% set accordion_id = 'otrasAcciones'  %}
+{% endif %}
+
+
+<div id="{{ accordion_id }}">
     <div class="card rounded-0">
-        <div class="card-header border-left-0 border-right-0 border-bottom-0" id="headingOtrasAcciones">
+        <div class="card-header border-left-0 border-right-0 border-bottom-0" id="heading{{ accordion_id }}">
             <h5 class="mb-0 text-right">
-                <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOtrasAcciones" aria-expanded="false" 
-                   aria-controls="collapseOtrasAcciones" style="text-decoration: none;vertical-align: sub;">                    
+                <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapse{{ accordion_id }}" aria-expanded="false" 
+                   aria-controls="collapse{{ accordion_id }}" style="text-decoration: none;vertical-align: sub;">                    
                     Otras acciones
                     <i class="bi-caret-down-fill"></i>
                 </a>
             </h5>
         </div>
 
-        <div id="collapseOtrasAcciones" class="collapse" aria-labelledby="headingOtrasAcciones" data-parent="#otras-acciones">
+        <div id="collapse{{ accordion_id }}" class="collapse" aria-labelledby="heading{{ accordion_id }}" data-parent="#{{ accordion_id }}">
             <div class="card-body">
                 {% block otras_acciones %}
                 {% endblock %}

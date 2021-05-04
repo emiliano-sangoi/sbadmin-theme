@@ -49,7 +49,7 @@ trait FormFieldsHelperTrait {
         ));
     }
 
-    public function addInteger(FormBuilderInterface $builder, array $options = array(), $label = 'Id', $field = 'id', $disabled = true, $min = 1, $ph = '') {
+    public function addInteger(FormBuilderInterface $builder, array $options = array(), $label = 'ID', $field = 'id', $disabled = true, $min = 1, $ph = '') {
         $conf = array(
             'label' => $label,
             'disabled' => $disabled,
@@ -97,12 +97,14 @@ trait FormFieldsHelperTrait {
         ));
     }
 
-    public function addTextDateTime(FormBuilderInterface $builder, array $options = array(), $label = 'Fecha', $field = 'fecha', $disabled = false) {
+    public function addTextDateTime(FormBuilderInterface $builder, array $options = array(), $label = 'Fecha', $field = 'fecha', $disabled = false, $title = '') {
         $builder->add($field, DateTimeType::class, array(
+            'label' => $label,
             'widget' => 'single_text',
             'format' => 'dd/MM/yyyy HH:mm',
             'attr' => array(
                 'class' => 'form-control',
+                'title' => $title
             ),
             'disabled' => $disabled
         ));
