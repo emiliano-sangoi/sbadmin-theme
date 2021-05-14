@@ -8028,6 +8028,75 @@ and open the template in the editor.
     .btn-alternativo:not(:disabled):not(.disabled):active:focus, .btn-alternativo:not(:disabled):not(.disabled).active:focus, .show > .btn-alternativo.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.2rem rgba(222, 222, 223, 0.5); }
 
+.btn-gris-1 {
+  color: white;
+  background-color: #85929E;
+  border-color: #85929E; }
+  .btn-gris-1:hover {
+    color: white;
+    background-color: #707f8d;
+    border-color: #6a7986; }
+  .btn-gris-1:focus, .btn-gris-1.focus {
+    color: white;
+    background-color: #707f8d;
+    border-color: #6a7986;
+    box-shadow: 0 0 0 0.2rem rgba(151, 162, 173, 0.5); }
+  .btn-gris-1.disabled, .btn-gris-1:disabled {
+    color: white;
+    background-color: #85929E;
+    border-color: #85929E; }
+  .btn-gris-1:not(:disabled):not(.disabled):active, .btn-gris-1:not(:disabled):not(.disabled).active, .show > .btn-gris-1.dropdown-toggle {
+    color: white;
+    background-color: #6a7986;
+    border-color: #65727f; }
+    .btn-gris-1:not(:disabled):not(.disabled):active:focus, .btn-gris-1:not(:disabled):not(.disabled).active:focus, .show > .btn-gris-1.dropdown-toggle:focus {
+      box-shadow: 0 0 0 0.2rem rgba(151, 162, 173, 0.5); }
+
+.btn-outline-gris-1 {
+  color: #85929E;
+  border-color: #85929E; }
+  .btn-outline-gris-1:hover {
+    color: #85929E;
+    background-color: #85929E;
+    border-color: #85929E; }
+  .btn-outline-gris-1:focus, .btn-outline-gris-1.focus {
+    box-shadow: 0 0 0 0.2rem rgba(133, 146, 158, 0.5); }
+  .btn-outline-gris-1.disabled, .btn-outline-gris-1:disabled {
+    color: #85929E;
+    background-color: transparent; }
+  .btn-outline-gris-1:not(:disabled):not(.disabled):active, .btn-outline-gris-1:not(:disabled):not(.disabled).active, .show > .btn-outline-gris-1.dropdown-toggle {
+    color: white;
+    background-color: #85929E;
+    border-color: #85929E; }
+    .btn-outline-gris-1:not(:disabled):not(.disabled):active:focus, .btn-outline-gris-1:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-gris-1.dropdown-toggle:focus {
+      box-shadow: 0 0 0 0.2rem rgba(133, 146, 158, 0.5); }
+
+/* ======================================================================================== */
+/* BTN Redmine */
+.btn-redmine {
+  color: white;
+  background-color: #628DB6;
+  border-color: #628DB6; }
+  .btn-redmine:hover {
+    color: white;
+    background-color: #4d7aa5;
+    border-color: #49739c; }
+  .btn-redmine:focus, .btn-redmine.focus {
+    color: white;
+    background-color: #4d7aa5;
+    border-color: #49739c;
+    box-shadow: 0 0 0 0.2rem rgba(122, 158, 193, 0.5); }
+  .btn-redmine.disabled, .btn-redmine:disabled {
+    color: white;
+    background-color: #628DB6;
+    border-color: #628DB6; }
+  .btn-redmine:not(:disabled):not(.disabled):active, .btn-redmine:not(:disabled):not(.disabled).active, .show > .btn-redmine.dropdown-toggle {
+    color: white;
+    background-color: #49739c;
+    border-color: #456d94; }
+    .btn-redmine:not(:disabled):not(.disabled):active:focus, .btn-redmine:not(:disabled):not(.disabled).active:focus, .show > .btn-redmine.dropdown-toggle:focus {
+      box-shadow: 0 0 0 0.2rem rgba(122, 158, 193, 0.5); }
+
 /* ======================================================================================== */
 /* Clipboard */
 .cnp img {
@@ -8065,52 +8134,13 @@ span.cnp:hover {
       $active-background: darken($background, 10%),
       $active-border: darken($border, 12.5%))
   */
-  color: #212529;
-  background-color: #ffffff;
-  border-color: #ffffff; }
-  #main-sidebar a.sidebar-item:hover {
-    color: white;
-    background-color: #6c757d;
-    border-color: #6c757d; }
-  #main-sidebar a.sidebar-item:focus, #main-sidebar a.sidebar-item.focus {
-    color: white;
-    background-color: #6c757d;
-    border-color: #6c757d;
-    box-shadow: 0 0 0 0.2rem rgba(222, 222, 223, 0.5); }
-  #main-sidebar a.sidebar-item.disabled, #main-sidebar a.sidebar-item:disabled {
-    color: #212529;
-    background-color: #ffffff;
-    border-color: #ffffff; }
-  #main-sidebar a.sidebar-item:not(:disabled):not(.disabled):active, #main-sidebar a.sidebar-item:not(:disabled):not(.disabled).active, .show > #main-sidebar a.sidebar-item.dropdown-toggle {
-    color: #212529;
-    background-color: #e6e6e6;
-    border-color: #dfdfdf; }
-    #main-sidebar a.sidebar-item:not(:disabled):not(.disabled):active:focus, #main-sidebar a.sidebar-item:not(:disabled):not(.disabled).active:focus, .show > #main-sidebar a.sidebar-item.dropdown-toggle:focus {
-      box-shadow: 0 0 0 0.2rem rgba(222, 222, 223, 0.5); }
+  /*@include button-variant(#ffffff, #ffffff, $secondary, $secondary);*/ }
   #main-sidebar a.sidebar-item.active {
-    color: white;
     background-color: #6c757d;
     border-color: #6c757d;
-    /*font-weight: bold;*/ }
-    #main-sidebar a.sidebar-item.active:hover {
-      color: #212529;
-      background-color: #ffffff;
-      border-color: #545b62; }
-    #main-sidebar a.sidebar-item.active:focus, #main-sidebar a.sidebar-item.active.focus {
-      color: #212529;
-      background-color: #ffffff;
-      border-color: #545b62;
-      box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5); }
-    #main-sidebar a.sidebar-item.active.disabled, #main-sidebar a.sidebar-item.active:disabled {
-      color: white;
-      background-color: #6c757d;
-      border-color: #6c757d; }
-    #main-sidebar a.sidebar-item.active:not(:disabled):not(.disabled):active, #main-sidebar a.sidebar-item.active:not(:disabled):not(.disabled).active, .show > #main-sidebar a.sidebar-item.active.dropdown-toggle {
-      color: white;
-      background-color: #545b62;
-      border-color: #4e555b; }
-      #main-sidebar a.sidebar-item.active:not(:disabled):not(.disabled):active:focus, #main-sidebar a.sidebar-item.active:not(:disabled):not(.disabled).active:focus, .show > #main-sidebar a.sidebar-item.active.dropdown-toggle:focus {
-        box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5); }
+    color: white;
+    /*@include button-variant($secondary, $secondary, #ffffff);*/
+    font-weight: bold; }
 
 /*
 To change this license header, choose License Headers in Project Properties.
@@ -8795,7 +8825,7 @@ footer .container-fluid, footer .container-sm, footer .container-md, footer .con
 #aplicaciones a.link-card {
   text-decoration: none; }
   #aplicaciones a.link-card .card:hover {
-    background-color: #108A97;
+    background-color: #616A6B;
     /*color: white;*/
     /*        .estado_app{
                 color: white !important;

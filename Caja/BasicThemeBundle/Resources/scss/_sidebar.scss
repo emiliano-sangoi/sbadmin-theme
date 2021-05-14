@@ -29,11 +29,14 @@
             $active-background: darken($background, 10%),
             $active-border: darken($border, 12.5%))
         */
-        @include button-variant(#ffffff, #ffffff, $secondary, $secondary);
+        /*@include button-variant(#ffffff, #ffffff, $secondary, $secondary);*/
 
         &.active{
-            @include button-variant($secondary, $secondary, #ffffff);
-            /*font-weight: bold;*/
+            background-color: $secondary;
+            border-color: $secondary;
+            color: white;
+            /*@include button-variant($secondary, $secondary, #ffffff);*/
+            font-weight: bold;
         }
     }
 

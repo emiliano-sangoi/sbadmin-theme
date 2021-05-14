@@ -27,12 +27,12 @@ $(document).ready(function () {
     $('.pedir-confirmacion').click(function (event) {
         event.preventDefault();
 
-        var element = $(event.target);
+        var element = $(this);
         var message = element.data('dialog_message');
         var title = element.data('dialog_title');
 
         var yesCallback = function (event) {
-            element.parent('form').submit();
+            element.closest('form').submit();
         }
 
         var dialog_config = getDialogConfirmConfig(title, message, yesCallback, null);

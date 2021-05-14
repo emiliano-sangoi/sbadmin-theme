@@ -164,6 +164,20 @@ $border: #fff;
     @include button-variant($background, $border);
 }
 
+.btn-gris-1 {
+    @include button-variant(#85929E, #85929E);
+}
+
+.btn-outline-gris-1 {
+    @include button-outline-variant(#85929E, #85929E);
+}
+
+/* ======================================================================================== */
+/* BTN Redmine */
+.btn-redmine{    
+    @include button-variant(#628DB6, #628DB6);
+}
+
 /* ======================================================================================== */
 /* Clipboard */
 

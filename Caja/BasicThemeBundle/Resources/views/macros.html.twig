@@ -108,7 +108,7 @@
 <!-- ====================================================================================== -->
 <!-- Alertas  -->
 
-{% macro alert_dismissible(style = "success", titulo = '', descripcion = '' ) %}
+{#{% macro alert_dismissible(style = "success", titulo = '', descripcion = '' ) %}
     <div class="alert alert-{{ style }} alert-dismissible fade show" role="alert">
         <strong> {{ titulo }} </strong>
         {{ descripcion }}
@@ -116,7 +116,18 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-{% endmacro %}
+{% endmacro %}#}
+
+{% macro alert_dismissible(style = "success", html = '', class='mb-2 mb-lg-3' ) %}
+<div class="alert alert-{{ style }} alert-dismissible fade show {{ class }} table-shadow" role="alert">
+
+    {{ html|raw }}
+
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+    {% endmacro %}
 
 <!-- ====================================================================================== -->
 <!-- Notificaciones  -->
@@ -205,7 +216,7 @@
 {% macro link_ayuda(codigo, class = '', icon='bi-question-circle-fill', icon_class = 'text-light') %}
     <a href="#" class="get-ayuda {{ class }}" data-codigo="{{ codigo }}">
         {% if icon %}
-            <i class="{{ icon }} small"></i>
+            <i class="{{ icon }} small {{ icon_class }}"></i>
         {% endif %}
     </a>
 {% endmacro %}

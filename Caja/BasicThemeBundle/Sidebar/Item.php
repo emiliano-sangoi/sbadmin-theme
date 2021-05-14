@@ -54,11 +54,24 @@ class Item {
      */
     private $iconTitle;
     
+    /**
+     *
+     * @var string 
+     */
+    private $title;
+    
+    /**
+     *
+     * @var boolean
+     */
+    private $targetBlank;
+    
     public function __construct() {
-        $this->css = 'btn-outline-secondary';
+        $this->css = 'btn-light';
         $this->active = false;
         $this->iconCss = '';
         $this->iconTitle = '';
+        $this->targetBlank = false;
     }
     
     public function getCss() {
@@ -139,6 +152,25 @@ class Item {
         $this->iconTitle = $iconTitle;
         return $this;
     }
+
+    function getTitle() {
+        return $this->title;
+    }
+
+    function setTitle($title) {
+        $this->title = $title;
+        return $this;
+    }
+
+    function getTargetBlank() {
+        return $this->targetBlank;
+    }
+
+    function setTargetBlank($targetBlank) {
+        $this->targetBlank = $targetBlank;
+        return $this;
+    }
+
 
 
 }

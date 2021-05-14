@@ -2,7 +2,7 @@
 
     {% for item in sidebarItems %}
         <a class="btn {{ item.getCss() }} py-2 sidebar-item mb-2" 
-           href="{{ item.getHref() }}">            
+           href="{{ item.getHref() }}" title="{{ item.getTitle() }}" {{ item.targetBlank ? "target='_blank'" : '' }} >            
 
             {% if item.showIcon()  %}
                 <i class="{{ item.getIcon() }} {{ item.getIconCss() }} mr-1 align-middle" title="{{ item.getIconTitle() }}"></i>
