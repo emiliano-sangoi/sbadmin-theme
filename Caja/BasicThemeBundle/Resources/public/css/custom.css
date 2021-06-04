@@ -8385,10 +8385,10 @@ div.input-group.date {
 .stg-logos-contenedor {
   visibility: hidden; }
 
-.btn {
-  font-size: unset;
-  padding: 0.20rem 0.75rem; }
-
+/*.btn{
+    font-size: unset;
+    padding: 0.20rem 0.75rem;
+}*/
 .row-top {
   padding-top: 70px; }
 
