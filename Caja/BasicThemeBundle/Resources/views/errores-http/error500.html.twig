@@ -1,0 +1,17 @@
+{% extends "@CajaBasicTheme/errores-http/error-base.html.twig" %}
+
+{% set show_context_info = true %}
+
+{% set msg_error_html %}
+    <h3 class='text-danger font-weight-bold'>
+        Error interno
+    </h3>
+    <p class=''>
+        Las causas de este error pueden ser diversas, por lo que le recomendamos que se contacte con el area de soporte de la 
+        aplicación ( <i class='font-weight-bold'>{{ app_email_soporte|default('email.soporte@mail.com') }}</i> ) describiendo
+        que tarea estaba realizando y en que momento se produjo el error.
+    </p>             
+    <p>               
+        Además, para tener mas informaci&oacute;n a la hora de analizar el problema, le pedimos que agregue la siguiente información al correo:
+    </p>
+{% endset %}

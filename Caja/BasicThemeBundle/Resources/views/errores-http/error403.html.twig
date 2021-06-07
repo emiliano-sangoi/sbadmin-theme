@@ -1,0 +1,16 @@
+{% extends "@CajaBasicTheme/errores-http/error-base.html.twig" %}
+
+{% set show_context_info = true %}
+
+{% set msg_error_html %}
+    <h3 class='text-warning font-weight-bold'>
+        Acceso denegado
+    </h3>
+    <p class=''>
+        Este error significa que no cuenta con los permisos suficientes para acceder a esta funcionalidad.
+    </p>               
+    <p> 
+        Si considera que debería poder acceder a esta sección, escriba un correo electrónico a la dirección <i class='font-weight-bold'>{{ app_email_soporte|default('email.soporte@mail.com') }}</i> anexando la siguiente información en el cuerpo del correo:
+    </p>
+{% endset %}
+

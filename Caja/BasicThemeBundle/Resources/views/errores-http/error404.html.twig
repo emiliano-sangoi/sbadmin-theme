@@ -1,0 +1,16 @@
+{% extends "@CajaBasicTheme/errores-http/error-base.html.twig" %}
+
+{% set show_context_info = true %}
+
+{% set msg_error_html %}
+    <h3 class='text-info font-weight-bold'>
+        Recurso NO encontrado
+    </h3>
+    <p>
+        La página u archivo a la que intenta acceder no existe. Revise la URL de la pagina actual si la misma ha sido ingresada manualmente.
+    </p>
+    <p>
+        Si usted ha sido redireccionado hasta esta página por el sistema, por favor escriba un correo electrónico a la 
+        dirección <i class='font-weight-bold'>{{ app_email_soporte|default('email.soporte@mail.com') }}</i> anexando la siguiente informacion.
+    </p>
+{% endset %}

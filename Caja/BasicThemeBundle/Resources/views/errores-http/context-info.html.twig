@@ -1,0 +1,46 @@
+<div class='table-responsive table-shadow'>
+    <table class="table table-bordered">    
+        <tbody>
+            <tr>
+                <td class='font-weight-bold bg-light text-right'>
+                    Tipo de error:
+                </td>
+                <td>
+                    {{ status_code }}
+                </td>
+            </tr>
+            <tr>
+                <td class='font-weight-bold bg-light text-right'>
+                    Aplicación:
+                </td>
+                <td>
+                    {{ app_nombre|default('APP')|upper }} ({{ app_codigo|default('app_codigo') }})
+                </td>
+            </tr>
+            <tr>
+                <td class='font-weight-bold bg-light text-right'>
+                    URL:
+                </td>
+                <td>
+                    {{ app.request.uri }}
+                </td>
+            </tr>
+            <tr>
+                <td class='font-weight-bold bg-light text-right'>
+                    Fecha y hora:
+                </td>
+                <td>
+                    {{ 'now'|date('d/m/Y H:i') }} Hs.
+                </td>
+            </tr>
+            <tr>
+                <td class='font-weight-bold bg-light text-right'>
+                    Usuario:
+                </td>
+                <td>
+                    {{ app.user|default('Usuario') }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>    

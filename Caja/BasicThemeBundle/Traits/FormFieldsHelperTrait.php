@@ -88,9 +88,10 @@ trait FormFieldsHelperTrait {
         ));
     }
 
-    public function addEmail(FormBuilderInterface $builder, array $options = array(), $label = 'Email', $field = 'email') {
+    public function addEmail(FormBuilderInterface $builder, array $options = array(), $label = 'Email', $field = 'email', $required = true) {
         $builder->add($field, EmailType::class, array(
             'label' => $label,
+            'required' => $required,
             'attr' => array(
                 'class' => 'form-control'
             )
