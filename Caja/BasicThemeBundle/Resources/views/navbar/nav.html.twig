@@ -3,14 +3,6 @@
         <span class="d-block font-weight-bold">SIAFCA</span>
     </a>#}
     <a class="navbar-brand" href="#">
-        {% if caja_usuarios_app_service is defined %}
-            {%  set current_app = caja_usuarios_app_service.getPorCodigo() %}
-            {% if current_app %}
-                {% set bt_app_name = current_app.nombre %}
-                {% set bt_app_version = current_app.version %}
-            {% endif %}
-        {% endif %}
-
 
         {% block navbar_logo %}
             <img src="{{ bt_logo_gob_stafe|default('') }}" alt="Santa Fe">
@@ -18,7 +10,7 @@
         <div class="d-inline-block pl-lg-3">
             <div class="app-name">
                 {% block navbar_app_name %}
-                    {{ bt_app_name|default('Nombre de la aplicación') }}
+                    {{ (bt_app_nombre|default('Nombre de la aplicación'))|upper }}
                 {% endblock %}
                 <small class="text-muted">
                     {% block navbar_app_version %}
@@ -29,7 +21,7 @@
 
             <div class="app-dependencia">
                 {% block navbar_app_dependencia %}
-                    {{ global_app_dependencia|default('Caja de Jubilaciones y Pensiones de la Provincia') }}
+                    {{ bt_app_dependencia|default('Caja de Jubilaciones y Pensiones de la Provincia') }}
                 {% endblock %}
             </div>
         </div>
@@ -45,7 +37,7 @@
         <ul class="navbar-nav mr-auto">            
         </ul>
 
-        <ul class="navbar-nav pr-4">
+        <ul class="navbar-nav pr-2">
             {#<li class="nav-item">
                 <a class="nav-link" href="#">Login</a>
             </li>
@@ -67,8 +59,6 @@
 
         {% block iconsSystem %}
 
-
-
             <ul class="list-inline custom-icon-middle mb-0">
 
                 {# Deshabilitar hasta que se implemente: #}
@@ -87,12 +77,19 @@
                     </div>
 
                 </li>#}    
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown border-left border-grey pl-lg-3">
                     <a href="#" class="dropdown-toggle" id="dropdownMenuLinkPerson" data-toggle="dropdown"
                        aria-haspopup="true"
-                       aria-expanded="false" title="Usuario logeado">
+                       aria-expanded="false" title="Usuario logeado" style="text-decoration: none;">
                         {#                        <i class="material-icons">person</i>#}
-                        <i class="bi-person-circle align-text-bottom" style="font-size: 1.7rem;"></i>                        
+                        <div class="d-inline-block">
+                            <span class="align-text-bottom align-middle">{{ app.user.username }}</span>&nbsp;&nbsp;
+                        </div>
+                        <div class="d-inline-block">
+                            <i class="bi-person-circle align-middle" style="font-size: 1.7rem;"></i>   
+                        </div>
+                        
+                                             
                     </a>
                     <div class="dropdown-menu custom-dropdown-menu-right" aria-labelledby="dropdownMenuLinkPerson">
                         <a class="dropdown-item get-info-usuario" href="#" data-username="{{ app.user ? app.user.username : '' }}">

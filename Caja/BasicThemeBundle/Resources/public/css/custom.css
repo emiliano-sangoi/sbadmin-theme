@@ -8097,6 +8097,25 @@ and open the template in the editor.
     .btn-redmine:not(:disabled):not(.disabled):active:focus, .btn-redmine:not(:disabled):not(.disabled).active:focus, .show > .btn-redmine.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.2rem rgba(122, 158, 193, 0.5); }
 
+.btn-outline-redmine {
+  color: #628DB6;
+  border-color: #628DB6; }
+  .btn-outline-redmine:hover {
+    color: white;
+    background-color: #628DB6;
+    border-color: #628DB6; }
+  .btn-outline-redmine:focus, .btn-outline-redmine.focus {
+    box-shadow: 0 0 0 0.2rem rgba(98, 141, 182, 0.5); }
+  .btn-outline-redmine.disabled, .btn-outline-redmine:disabled {
+    color: #628DB6;
+    background-color: transparent; }
+  .btn-outline-redmine:not(:disabled):not(.disabled):active, .btn-outline-redmine:not(:disabled):not(.disabled).active, .show > .btn-outline-redmine.dropdown-toggle {
+    color: white;
+    background-color: #628DB6;
+    border-color: #628DB6; }
+    .btn-outline-redmine:not(:disabled):not(.disabled):active:focus, .btn-outline-redmine:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-redmine.dropdown-toggle:focus {
+      box-shadow: 0 0 0 0.2rem rgba(98, 141, 182, 0.5); }
+
 /* ======================================================================================== */
 /* Clipboard */
 .cnp img {

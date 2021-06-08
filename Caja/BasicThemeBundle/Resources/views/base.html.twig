@@ -3,7 +3,7 @@
     <head>
 
         <title>
-            {{ titulo_pagina | default('Titulo de la aplicación') }}
+            {{ titulo_pagina | default('Titulo de la pagina') }}
         </title>
 
         <!-- Required meta tags -->
@@ -109,7 +109,7 @@
                         {% if app.user.activo is defined and app.user.activo == false %}
                             Usuario inactivo
                         {% else %}
-                            {{ titulo_pagina | default('Titulo de la aplicación') }}
+                            {{ titulo_pagina | default('Titulo de la pagina') }}
                             {%  if subtitulo is defined %}
                                 <span class="align-middle">&middot;</span> <small class="text-light align-middle">{{ subtitulo }}</small>
                             {% endif %}

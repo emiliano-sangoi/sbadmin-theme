@@ -178,6 +178,10 @@ $border: #fff;
     @include button-variant(#628DB6, #628DB6);
 }
 
+.btn-outline-redmine{    
+    @include button-outline-variant(#628DB6, white);
+}
+
 /* ======================================================================================== */
 /* Clipboard */
 

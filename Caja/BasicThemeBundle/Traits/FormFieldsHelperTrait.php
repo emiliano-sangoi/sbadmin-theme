@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Email;
 
 /**
  * Este trait contiene metodos para crear facilmente campos que son comunes en los formularios.
@@ -94,6 +95,9 @@ trait FormFieldsHelperTrait {
             'required' => $required,
             'attr' => array(
                 'class' => 'form-control'
+            ),
+            'constraints' => array(
+                new Email(array('message' => 'Formato de correo invalido'))
             )
         ));
     }
