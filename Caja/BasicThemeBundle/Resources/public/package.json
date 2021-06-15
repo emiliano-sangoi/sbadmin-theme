@@ -4,6 +4,7 @@
   "description": "Tema basico para las aplicaciones de la Web de la Caja",
   "main": "index.js",
   "dependencies": {
+    "@ttskch/select2-bootstrap4-theme": "^1.5.2",
     "@yaireo/tagify": "^3.25.0",
     "bootbox": "^5.3.4",
     "bootstrap": "^4.6.0",
@@ -18,7 +19,6 @@
     "moment": "^2.29.1",
     "prop-types": "^15.7.2",
     "select2": "^4.1.0-rc.0",
-    "select2-bootstrap-theme": "0.1.0-beta.10",
     "swagger-ui-dist": "^3.50.0",
     "symfony-collection": "^2.1.30",
     "tempusdominus-bootstrap-4": "^5.39.0",

@@ -13,13 +13,29 @@ $(document).ready(function () {
     // https://select2.org/
     // Definir Bootstrap por default para todos los selects:
     //https://www.npmjs.com/package/select2-theme-bootstrap4
-    $.fn.select2.defaults.set("theme", "bootstrap");
+    $.fn.select2.defaults.set("theme", "bootstrap4");
+
+
     $('.select2-basico').select2({
-        width: null,
-        containerCssClass: ':all:'
-                //   placeholder: 'Elija una opción',
-                //allowClear: true,
+        theme: 'bootstrap4',
+        placeholder: "Seleccione una opción",
+        allowClear: true
     });
+
+//    $('.select2-basico-sm').select2({
+//        theme: 'bootstrap4',
+//        containerCssClass: ':all:',
+//        placeholder: "Seleccione una opción",
+//        allowClear: true
+//    });
+//
+//    $('.select2-basico-lg').select2({
+//        theme: 'bootstrap4',
+//        containerCssClass: ':all:',
+//        placeholder: "Seleccione una opción",
+//        allowClear: true
+//    });
+
 
     // Cuando cambia el departamento se debe actualizar el listado de localidades
     $('.select-departamento').change(onChangeDepartamento);
