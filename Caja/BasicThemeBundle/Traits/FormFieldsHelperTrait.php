@@ -41,13 +41,24 @@ trait FormFieldsHelperTrait {
         ));
     }
 
-    public function addCuit(FormBuilderInterface $builder, array $options = array(), $label = '¿Activo?', $field = 'activo') {
-        $builder->add('cuil', TextType::class, array(
-            'label' => 'CUIL',
+    public function addCuit(FormBuilderInterface $builder, array $options = array(), $label = 'CUIL', $field = 'cuil', $required = false) {
+        
+        $conf = array(
+            'label' => $label,
+            'required' => $required,
             'attr' => array(
-                'class' => 'form-control'
+                'class' => 'form-control enmascarar-cuit',
+                'placeholder' => 'CUIL'
             )
-        ));
+        );                
+        
+        if ($required) {
+            $conf['constraints'][] = new NotBlank(array(
+                'message' => 'Campo obligatorio'
+            ));
+        }
+        
+        $builder->add($field, TextType::class, $conf);
     }
 
     public function addInteger(FormBuilderInterface $builder, array $options = array(), $label = 'ID', $field = 'id', $disabled = true, $min = 1, $ph = '') {
@@ -60,7 +71,7 @@ trait FormFieldsHelperTrait {
             )
         );
 
-        if(is_int($min)){
+        if (is_int($min)) {
             $conf['attr']['min'] = $min;
         }
         $builder->add($field, IntegerType::class, $conf);
@@ -113,6 +124,40 @@ trait FormFieldsHelperTrait {
             ),
             'disabled' => $disabled
         ));
-    }   
+    }
+
+    public function addMesType(FormBuilderInterface $builder, array $options = array(), $label = 'Mes', $field = 'mes', $required = false, $disabled = false) {
+
+        $meses = array(
+            'Enero' => '01',
+            'Febrero' => '02',
+            'Marzo' => '03',
+            'Abril' => '04',
+            'Mayo' => '05',
+            'Junio' => '06',
+            'Julio' => '07',
+            'Agosto' => '08',
+            'Septiembre' => '09',
+            'Octubre' => '10',
+            'Noviembre' => '11',
+            'Diciembre' => '12'
+        );
+
+        $conf = array(
+            'choices' => $meses,
+            'label' => $label,
+            'required' => $required,
+            'label_attr' => array(
+                'class' => 'font-weight-bold'
+            ),
+            'attr' => array('class' => 'select2-basico form-control'),
+            'multiple' => false,
+            'expanded' => false,
+            'data' => date('m'),
+            'disabled' => $disabled
+        );
+
+        $builder->add($field, ChoiceType::class, $conf);
+    }
 
 }
