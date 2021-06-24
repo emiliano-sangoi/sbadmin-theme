@@ -29,6 +29,6 @@ twig:
     globals:
         global_empty: '-'
         global_id_ciud_url: 'https://www.santafe.gob.ar/index.php/tramites/modul1/index?m=descripcion&id=253002'        
-        # estilos bootstrap de tablas: (table-striped, table-bordered,table-hover
-        global_table_style: 'table-hover'
+        # estilos bootstrap de tablas: (table-striped, table-bordered,table-hover        
+        global_table_class: 'table table-sm table-hover'
         bt_logo_gob_stafe: 'https://www.santafe.gob.ar/assets/standard/images/gob-santafe.png'

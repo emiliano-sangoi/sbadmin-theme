@@ -2,10 +2,10 @@
 
 {% set show_context_info = true %}
 
+{% set msg_error_titulo = 'Error interno' %}
+{% set css_text_color = 'text-danger' %}
+
 {% set msg_error_html %}
-    <h3 class='text-danger font-weight-bold'>
-        Error interno
-    </h3>
     <p class=''>
         Las causas de este error pueden ser diversas, por lo que le recomendamos que se contacte con el area de soporte de la 
         aplicación ( <i class='font-weight-bold'>{{ app_email_soporte|default('email.soporte@mail.com') }}</i> ) describiendo

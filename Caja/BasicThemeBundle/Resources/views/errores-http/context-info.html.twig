@@ -2,11 +2,13 @@
     <table class="table table-bordered">    
         <tbody>
             <tr>
-                <td class='font-weight-bold bg-light text-right'>
+                <td class='font-weight-bold bg-light text-right w-25'>
                     Tipo de error:
                 </td>
                 <td>
-                    {{ status_code }}
+                    <span class="{{ css_text_color|default('') }} font-weight-bold text-uppercase">
+                        {{ status_code }} - {{ msg_error_titulo|default('Error') }}
+                    </span>
                 </td>
             </tr>
             <tr>
@@ -14,7 +16,7 @@
                     Aplicación:
                 </td>
                 <td>
-                    {{ app_nombre|default('APP')|upper }} ({{ app_codigo|default('app_codigo') }})
+                    {{ bt_app_codigo|default('APP')|upper }} ({{ bt_app_codigo|default('app_codigo') }})
                 </td>
             </tr>
             <tr>
