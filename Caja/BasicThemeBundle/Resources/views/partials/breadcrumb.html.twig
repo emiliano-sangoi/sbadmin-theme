@@ -1,25 +1,27 @@
-<nav aria-label="breadcrumb" class="">
-    <ol class="breadcrumb rounded align-middle">
-        {% block breadcrumbItems %}            
-            {% for item in items %}
-                {% if loop.last %}
-                    <li class="breadcrumb-item active" aria-current="page">                              
-                        {{ item.translatedLabel|upper }}                        
-                    </li>
-                {% else %}
-                    <li class="breadcrumb-item">
-                        {% if item.url %}
-                            <a href="{{ item.url|quitar_get_params }}">
-                                {{ item.translatedLabel|capitalize }}
-                            </a>
-                        {% else %}
-                            <span class="text-muted">
-                                {{ item.translatedLabel|capitalize }}
-                            </span>                            
-                        {% endif %}
-                    </li>
-                {% endif %}
-            {% endfor %}
-        {% endblock %}
-    </ol>
-</nav>
+{% if items|length > 0 %}
+    <nav aria-label="breadcrumb" class="">
+        <ol class="breadcrumb rounded align-middle">
+            {% block breadcrumbItems %}            
+                {% for item in items %}
+                    {% if loop.last %}
+                        <li class="breadcrumb-item active" aria-current="page">                              
+                            {{ item.translatedLabel|upper }}                        
+                        </li>
+                    {% else %}
+                        <li class="breadcrumb-item">
+                            {% if item.url %}
+                                <a href="{{ item.url|quitar_get_params }}">
+                                    {{ item.translatedLabel }}
+                                </a>
+                            {% else %}
+                                <span class="text-muted">
+                                    {{ item.translatedLabel }}
+                                </span>                            
+                            {% endif %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% endblock %}
+        </ol>
+    </nav>
+{% endif %}

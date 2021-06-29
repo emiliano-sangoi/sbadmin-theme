@@ -8518,15 +8518,17 @@ and open the template in the editor.
     Author     : esangoi
 */
 .breadcrumb {
-  color: #6c757d;
+  /*color: $secondary;*/
   margin-bottom: .75rem;
   background-color: white;
   padding-top: .3rem;
   padding-bottom: .3rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  font-size: 90%;
-  border-radius: 0; }
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  opacity: .95;
+  /*font-size: 90%;*/
+  /*border-radius: 0;*/ }
   .breadcrumb a {
     color: #6c757d; }
   .breadcrumb .breadcrumb-item .active {
