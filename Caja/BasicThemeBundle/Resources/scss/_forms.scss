@@ -62,6 +62,14 @@ input[type="radio"]{
     }
 }
 
+.fieldset-filtro{
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, .25);*/
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+    -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+        
+}
+
 .organismo-campos-extra{
     /*margin-top: $form-row-margin;*/
     /*margin-bottom: $form-row-margin;*/

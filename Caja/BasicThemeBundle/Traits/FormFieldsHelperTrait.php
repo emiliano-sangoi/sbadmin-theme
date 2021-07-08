@@ -4,6 +4,7 @@ namespace Caja\BasicThemeBundle\Traits;
 
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -11,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
  * Este trait contiene metodos para crear facilmente campos que son comunes en los formularios.
@@ -42,7 +44,7 @@ trait FormFieldsHelperTrait {
     }
 
     public function addCuit(FormBuilderInterface $builder, array $options = array(), $label = 'CUIL', $field = 'cuil', $required = false) {
-        
+
         $conf = array(
             'label' => $label,
             'required' => $required,
@@ -50,14 +52,14 @@ trait FormFieldsHelperTrait {
                 'class' => 'form-control enmascarar-cuit',
                 'placeholder' => 'CUIL'
             )
-        );                
-        
+        );
+
         if ($required) {
             $conf['constraints'][] = new NotBlank(array(
                 'message' => 'Campo obligatorio'
             ));
         }
-        
+
         $builder->add($field, TextType::class, $conf);
     }
 
@@ -123,6 +125,24 @@ trait FormFieldsHelperTrait {
                 'title' => $title
             ),
             'disabled' => $disabled
+        ));
+    }
+
+    public function addTextDate(FormBuilderInterface $builder, array $options = array(), $label = 'Fecha', $field = 'fecha', $disabled = false, $placeholder = 'Ingrese una fecha') {
+        $builder->add($field, DateType::class, array(
+            'widget' => 'single_text',
+            // previene el renderizado con type="date" para prevenir el datepicker de HTML
+            'html5' => false,
+            'format' => 'dd/MM/yyyy',
+            'label' => $label,
+            'required' => false,
+            'disabled' => $disabled,
+            'attr' => array(
+                'class' => 'js-datepicker enmascarar-fecha'
+            ),
+            'label_attr' => array(
+                'class' => ''
+            ),
         ));
     }
 

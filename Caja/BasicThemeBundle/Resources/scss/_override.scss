@@ -14,16 +14,21 @@ $altura_input: 26.7812px ;
     font-size: inherit !important;    
 }
 
+/*.select2-multiple{
+    .select2-selection__choice__display{
+        vertical-align: sub !important;
+    }
+}*/
 /*.select2-container--bootstrap .select2-selection--single*/
 /*deshabilitado:*/
 .select2-container--bootstrapXXXXXXXXXX {
 
     .select2-selection--single{
 
-        height: $altura_input !important;
+/*        height: $altura_input !important;
         .select2-selection__rendered{
             line-height: initial;
-        }
+        }*/
 
         /*height: inherit !important;*/
         /*@include fix-select2-input-style;*/
@@ -38,9 +43,9 @@ $altura_input: 26.7812px ;
     }
 
 
-    .select2-selection--multiple{
-        /*height: inherit !important;*/
-        /*    min-height: auto !important;*/
+/*    .select2-selection--multiple{
+        height: inherit !important;
+            min-height: auto !important;
         .select2-search__field{
             height: inherit !important;
             padding: 0 !important;
@@ -48,9 +53,9 @@ $altura_input: 26.7812px ;
         @include fix-input-style;  
 
         .select2-selection__choice{
-            /*margin: 2px;*/
+            margin: 2px;
         }
-    }
+    }*/
 
 }
 

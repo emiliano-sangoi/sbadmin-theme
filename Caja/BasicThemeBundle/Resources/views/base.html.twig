@@ -222,8 +222,6 @@
             <!-- https://gitbrent.github.io/bootstrap4-toggle/ -->
             <script src="{{ asset('bundles/cajabasictheme/node_modules/bootstrap4-toggle/js/bootstrap4-toggle.min.js') }}"></script>
 
-            <script src="{{ asset('bundles/cajabasictheme/js/custom.js') }}"></script>
-
             <!-- Cuadros de dialogos para alertas, prompts, confirmación de alguna accion, etc. -->
             <script src="{{ asset('bundles/cajabasictheme/js/modals.js') }}"></script>
 
@@ -254,6 +252,10 @@
             {# El siguiente modulo habilita algunas funciones de pantalla completa y dialogo de imprimir #}
             <script src="{{ asset('bundles/cajabasictheme/node_modules/highcharts/modules/accessibility.js') }}"></script>
 
+            <script src="{{ asset('bundles/cajabasictheme/js/custom.js') }}"></script>
+            
+            <script src="{{ asset('bundles/utils/js/datepickers.js') }}"></script>
+
             {% block ayuda_js %}                
             {% endblock %}
 
@@ -262,44 +264,12 @@
             <script>
                 $(document).ready(function () {
 
-                    //Básico:
-                    //    $('#datetimepicker-simple').datetimepicker({locale: 'es'});
-
-                    // Solo tiempo:
-                    //    $('#datetimepicker-timeony').datetimepicker({format: 'LT'});
-                    new ClipboardJS('.cnp');
-
-
-                    // Input Mask
-                    // https://github.com/RobinHerbots/Inputmask
-                    // Ejemplo: https://robinherbots.github.io/Inputmask/
-                    $('.enmascarar-cuit').inputmask({
-                        //"mask": "*{1,3}[.*{8}]"
-                        "mask": "*{2}-*{8}-*{1}",
-                        "placeholder": "_"
-                    });
-                    $('.enmascarar-cuil').inputmask({
-                        //"mask": "*{1,3}[.*{8}]"
-                        "mask": "*{2}-*{8}-*{1}",
-                        "placeholder": "_"
-                    });
-
                     // Mascara para nro de expediente:
                     $('.enmascarar-nro-expte').inputmask({
                         //"mask": "*{1,3}[.*{8}]"
                         "mask": "*{5}-*{7}-*{1}",
                         "placeholder": "_"
                     });
-
-                    // Máscara para fechas en formato dd/mm/yyyy:
-                    // https://github.com/RobinHerbots/Inputmask/blob/5.x/README_date.md
-                    $('.enmascarar-fecha').inputmask({
-                        "alias": "datetime",
-                        "mask": "99/99/9999",
-                        "placeholder": "dd/mm/yyyy",
-                    });
-
-
 
                 });
 

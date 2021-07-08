@@ -2,11 +2,6 @@ $(document).ready(function () {
 
 
 //    $('#datetimepicker1').datetimepicker();
-    $('#datepicker').datetimepicker({
-        format: 'L', //formato: DD/MM/YYYY
-        locale: 'es',
-        viewMode: 'years', // el usuario selecciona: Año, luego Mes y luego Día
-    });
 
 
     // Select2
@@ -20,6 +15,13 @@ $(document).ready(function () {
         theme: 'bootstrap4',
         placeholder: "Seleccione una opción",
         allowClear: true
+    });
+
+    $('.select2-multiple').select2({
+        theme: 'bootstrap4',
+        placeholder: "Seleccione una opción",
+        allowClear: true,
+        containerCssClass: ':all:',
     });
 
 //    $('.select2-basico-sm').select2({
@@ -111,10 +113,9 @@ $(document).ready(function () {
 
 
     // ===========================================================================================    
-    // Tooltips
+    // Copy y paste
 
-    //Activar tooltips:
-    //$('[data-toggle="tooltip"]').tooltip();
+    new ClipboardJS('.cnp');
 
     $('.cnp').hover(function (event) {
         $(this).tooltip('hide')
@@ -129,6 +130,38 @@ $(document).ready(function () {
         //$(event.target).tooltip('Copiado');
     });
 
+    // ===========================================================================================    
+
+    //Básico:
+    //    $('#datetimepicker-simple').datetimepicker({locale: 'es'});
+
+    // Solo tiempo:
+    //    $('#datetimepicker-timeony').datetimepicker({format: 'LT'});
+
+
+
+    // Input Mask
+    // https://github.com/RobinHerbots/Inputmask
+    // Ejemplo: https://robinherbots.github.io/Inputmask/
+    $('.enmascarar-cuit').inputmask({
+        //"mask": "*{1,3}[.*{8}]"
+        "mask": "*{2}-*{8}-*{1}",
+        "placeholder": "_"
+    });
+    $('.enmascarar-cuil').inputmask({
+        //"mask": "*{1,3}[.*{8}]"
+        "mask": "*{2}-*{8}-*{1}",
+        "placeholder": "_"
+    });
+
+    // Máscara para fechas en formato dd/mm/yyyy:
+    // https://github.com/RobinHerbots/Inputmask/blob/5.x/README_date.md
+    $('.enmascarar-fecha').inputmask({
+        "alias": "datetime",
+        "mask": "99/99/9999",
+        "placeholder": "dd/mm/yyyy",
+    });
+    
     /*var itemActivo = null;
      $("#indice .dropdown-item").click(function(event){
      //console.log("holis");

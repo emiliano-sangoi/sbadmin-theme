@@ -119,15 +119,15 @@
 {% endmacro %}#}
 
 {% macro alert_dismissible(style = "success", html = '', class='mb-2 mb-lg-3' ) %}
-<div class="alert alert-{{ style }} alert-dismissible fade show {{ class }} table-shadow" role="alert">
+    <div class="alert alert-{{ style }} alert-dismissible fade show {{ class }} table-shadow" role="alert">
 
-    {{ html|raw }}
+        {{ html|raw }}
 
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-    {% endmacro %}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endmacro %}
 
 <!-- ====================================================================================== -->
 <!-- Notificaciones  -->
@@ -146,12 +146,12 @@
 <!-- ====================================================================================== -->
 <!-- Cards  -->
 {# Modelos mas complejos se pueden separar en plantillas en partials/ #}
-{% macro card_simple(body = "", text_muted = true, class = '', padding = 'py-3 px-3' ) %}
-    <div class="card">
-        <div class="card-body {{ padding ~ ' ' ~ class  }} {{ text_muted ? 'text-muted' : '' }}">
-            {{ body }}
-        </div>
-    </div>
+{% macro card_simple(texto = "", css = 'my-2 my-lg-3' ) %}
+    {% embed "@CajaBasicTheme/partials/card-basica-sin-header.html.twig" with { 'css' : css } %}
+        {% block card_body %}
+            {{ texto }}
+        {% endblock card_body %}
+    {% endembed %}
 {% endmacro %}
 
 {% macro card_id_ciudadana(datosIdCiudadana) %}    
