@@ -16,27 +16,12 @@ $(document).ready(function () {
         placeholder: "Seleccione una opción",
         allowClear: true
     });
-
-    $('.select2-multiple').select2({
-        theme: 'bootstrap4',
-        placeholder: "Seleccione una opción",
-        allowClear: true,
-        containerCssClass: ':all:',
-    });
-
-//    $('.select2-basico-sm').select2({
-//        theme: 'bootstrap4',
-//        containerCssClass: ':all:',
-//        placeholder: "Seleccione una opción",
-//        allowClear: true
-//    });
-//
-//    $('.select2-basico-lg').select2({
-//        theme: 'bootstrap4',
-//        containerCssClass: ':all:',
-//        placeholder: "Seleccione una opción",
-//        allowClear: true
-//    });
+    
+    // ================================================================================================
+    // Multi select    
+    // Crea un select multiple "generico" para usar en aquellos selectores que tengan la clase "select-multiple"
+    crearSelectMultiple('.select-multiple', false, null);
+    crearSelectMultiple('.select-multiple-con-filtro', true, null);
 
 
     // Cuando cambia el departamento se debe actualizar el listado de localidades
@@ -161,7 +146,7 @@ $(document).ready(function () {
         "mask": "99/99/9999",
         "placeholder": "dd/mm/yyyy",
     });
-    
+
     /*var itemActivo = null;
      $("#indice .dropdown-item").click(function(event){
      //console.log("holis");
@@ -199,4 +184,57 @@ function onChangeDepartamento(event) {
         $('.select-localidades').html(items.join(""));
     });
 
+}
+
+
+function crearSelectMultiple(selector, conFiltro, numberDisplayed){
+    
+    if(numberDisplayed === null || typeof numberDisplayed !== 'number' || numberDisplayed <= 0){
+        numberDisplayed = 3;
+    }    
+    
+    var fButtonText = function (options) {
+        if (options.length === 0) {
+            return 'Ninguno seleccionado';
+        } else if (options.length > numberDisplayed) {
+            return options.length + ' seleccionados';
+        } else {
+            var selected = [];
+            options.each(function () {
+                selected.push([$(this).text(), $(this).data('order')]);
+            });
+
+            selected.sort(function (a, b) {
+                return a[1] - b[1];
+            });
+
+            var text = '';
+            for (var i = 0; i < selected.length; i++) {
+                text += selected[i][0] + ', ';
+            }
+
+            return text.substr(0, text.length - 2);
+        }
+    };
+    
+    var conf = {
+        buttonWidth: '100%',
+        allSelectedText: 'Todas las opciones seleccionadas',
+        numberDisplayed: numberDisplayed,
+       // includeResetOption: true,
+       // includeResetDivider: true,
+       // resetText: 'Reiniciar',
+        buttonTextAlignment: 'left',
+        buttonText: fButtonText
+    };
+    
+    if(conFiltro){
+        conf.enableFiltering = true;
+        conf.filterPlaceholder = 'Filtrar ...';
+    }
+
+    $(selector).multiselect(conf);
+    
+    
+    
 }

@@ -8347,49 +8347,8 @@ Override de estilos existentes
 .select2-container--bootstrap .select2-selection {
   font-size: inherit !important; }
 
-/*.select2-multiple{
-    .select2-selection__choice__display{
-        vertical-align: sub !important;
-    }
-}*/
-/*.select2-container--bootstrap .select2-selection--single*/
-/*deshabilitado:*/
-.select2-container--bootstrapXXXXXXXXXX {
-  /*    .select2-selection--multiple{
-          height: inherit !important;
-              min-height: auto !important;
-          .select2-search__field{
-              height: inherit !important;
-              padding: 0 !important;
-          }
-          @include fix-input-style;  
-  
-          .select2-selection__choice{
-              margin: 2px;
-          }
-      }*/ }
-  .select2-container--bootstrapXXXXXXXXXX .select2-selection--single {
-    /*        height: $altura_input !important;
-            .select2-selection__rendered{
-                line-height: initial;
-            }*/
-    /*height: inherit !important;*/
-    /*@include fix-select2-input-style;*/
-    /*height: auto !important;*/
-    /*min-height: auto !important;*/
-    /*@include fix-select2-input-style-single;*/ }
-    .select2-container--bootstrapXXXXXXXXXX .select2-selection--single .select2-search__field {
-      /*height: inherit !important;*/
-      /*@include fix-select2-input-style;*/
-      /*padding: 0 !important;*/ }
-
-/*.select2-selection .select2-selection--multiple {*/
-/*.select2-container--bootstrap*/
-.select2-container--bootstrap .select2-selection {
-  /*font-size: $font-size-base !important;*/ }
-
-.select2-container--bootstrap .select2-selection--multiple .select2-search--inline .select2-search__field {
-  /*height: auto !important;*/ }
+.dropdown-item.active, .dropdown-item:active {
+  background-color: #e4e5e6; }
 
 div.input-group.date {
   height: 26.7812px !important; }
@@ -8408,9 +8367,9 @@ div.input-group.date {
   position: relative; }
 
 /*Override de estilos de bootstrap:*/
-.font-weight-bold {
-  font-weight: 600 !important; }
-
+/*.font-weight-bold {
+    font-weight: 600 !important;
+}*/
 .custom-dropdown-menu-right {
   right: auto; }
 
