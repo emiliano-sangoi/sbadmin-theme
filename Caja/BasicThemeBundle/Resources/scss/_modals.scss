@@ -12,40 +12,36 @@ and open the template in the editor.
     $aux: .8rem;
 
     .modal-header{
-        /*padding: $font-size-base * .6;*/
-        /*padding-left: 1rem + $aux;*/
-        /*padding-right: 1rem + $aux;*/
-        /*background-color: $gray-1;*/
+        background-color: $primary;
         
-        i.material-icons{
-            vertical-align: middle;
+        padding-top: $aux;
+        padding-bottom: $aux * .9;
+
+        h5{
+            color: white !important;
+            font-weight: bold;
+            text-transform: uppercase;
             font-size: 1.1rem;
         }
         
-        .modal-title{
-            font-size: 1.1rem;
-            line-height: initial;
-            /*margin-bottom: 0;*/
+        .close{
+            color: white;
         }
-        
-/*        .close {
-            padding: $font-size-base * .6;
-            margin: 0;
-        }*/
+
     }
     .modal-body .bootbox-body{
         padding-left: $aux;
         padding-right: $aux;
-        
+
         h3{
             font-size: 1.3rem;            
             margin-bottom: 1rem;
         }
-        
+
         label{
             font-weight: bold;
         }
-        
+
         p{
             font-size: initial;
             margin-bottom: .5rem;

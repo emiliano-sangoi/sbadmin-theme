@@ -8453,21 +8453,16 @@ and open the template in the editor.
     Author     : esangoi
 */
 .bootbox .modal-header {
-  /*padding: $font-size-base * .6;*/
-  /*padding-left: 1rem + $aux;*/
-  /*padding-right: 1rem + $aux;*/
-  /*background-color: $gray-1;*/
-  /*        .close {
-              padding: $font-size-base * .6;
-              margin: 0;
-          }*/ }
-  .bootbox .modal-header i.material-icons {
-    vertical-align: middle;
+  background-color: #108A97;
+  padding-top: 0.8rem;
+  padding-bottom: 0.72rem; }
+  .bootbox .modal-header h5 {
+    color: white !important;
+    font-weight: bold;
+    text-transform: uppercase;
     font-size: 1.1rem; }
-  .bootbox .modal-header .modal-title {
-    font-size: 1.1rem;
-    line-height: initial;
-    /*margin-bottom: 0;*/ }
+  .bootbox .modal-header .close {
+    color: white; }
 .bootbox .modal-body .bootbox-body {
   padding-left: 0.8rem;
   padding-right: 0.8rem; }
