@@ -17,6 +17,7 @@
     "jquery.easing": "^1.4.1",
     "material-icons": "^0.5.5",
     "moment": "^2.29.1",
+    "paginationjs": "^2.1.5",
     "prop-types": "^15.7.2",
     "select2": "^4.1.0-rc.0",
     "swagger-ui-dist": "^3.50.0",
