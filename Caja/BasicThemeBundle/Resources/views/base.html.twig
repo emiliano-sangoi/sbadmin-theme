@@ -47,12 +47,14 @@
 
             <!-- Font awesome -->
             <link rel="stylesheet" href="{{ asset('bundles/cajabasictheme/node_modules/font-awesome/css/font-awesome.min.css') }}" type="text/css">
-            
+
             <!-- Bootstrap Multiselect -->
             <link rel="stylesheet" href="{{ asset('bundles/cajabasictheme/bootstrap-multiselect-1.0.0/dist/css/bootstrap-multiselect.css') }}" type="text/css">
 
             <!-- assets fonts -->
             <link rel="stylesheet" href="https://www.santafe.gob.ar/assets/standard/css/fonts.css" type="text/css">
+
+            <link rel="stylesheet" href="{{ asset('bundles/cajabasictheme/node_modules/paginationjs/dist/pagination.css') }}" type="text/css"> 
 
             <style>
 
@@ -256,12 +258,16 @@
             <script src="{{ asset('bundles/cajabasictheme/node_modules/highcharts/modules/accessibility.js') }}"></script>
 
             <script src="{{ asset('bundles/cajabasictheme/js/custom.js') }}"></script>
-            
+
             <script src="{{ asset('bundles/utils/js/datepickers.js') }}"></script>
-            
+
             <!-- Bootstrap multiselect -->
             <!-- https://davidstutz.github.io/bootstrap-multiselect/ -->
-            <script src="{{ asset('bundles/cajabasictheme/bootstrap-multiselect-1.0.0/dist/js/bootstrap-multiselect.min.js') }}"></script>                        
+            <script src="{{ asset('bundles/cajabasictheme/bootstrap-multiselect-1.0.0/dist/js/bootstrap-multiselect.min.js') }}"></script>   
+
+            <!-- Pagination.js -->
+            <!-- http://pagination.js.org/ -->
+            <script src="{{ asset('bundles/cajabasictheme/node_modules/paginationjs/dist/pagination.min.js') }}"></script>
 
             {% block ayuda_js %}                
             {% endblock %}
