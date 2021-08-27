@@ -1,18 +1,20 @@
-<div class="card {{ card_class|default('') }} shadow" title="{{ card_title|default('') }}">
+<div class="card shadow" title="{{ card_title|default('') }}">
     {% if card_header is defined %}
-        <div class="card-header font-weight-bold text-uppercase bg-secondary text-white py-2 px-3">
+        <div class="card-header font-weight-bold text-uppercase {{ card_header_class|default('bg-secondary') }} text-white py-2 px-3">
             {{ card_header }}              
         </div>
     {% endif %}
     <div class="card-body font-weight-bold {{ text_color|default('text-dark') }} py-2">        
         {% block card_body %}
-            <div class="row">
-                <div class="col-12 col-md-9">
-                    <span class="centrate-y">
-                        {{ main_label|default('SIN INFORMACION') }}
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="">
+                    <span class="">
+                        {% block card_main_label %}
+                            {{ main_label|default('SIN INFORMACION') }}
+                        {% endblock %}
                     </span>
                 </div>
-                <div class="col-12 col-md-3 text-right">
+                <div class="text-right">
                     <i class="{{ icon|default('bi-check-circle') }}" style="font-size: 2em;"></i>
                 </div>
             </div>
@@ -23,7 +25,7 @@
             {{ link_label|default('Ver detalles') }}
         </a>
         <div class="text-dark">
-            <i class="bi-arrow-right-circle"></i>
+            <i class="{{ icon_footer|default('bi-arrow-right-circle') }}"></i>
         </div>
     </div>
 </div>

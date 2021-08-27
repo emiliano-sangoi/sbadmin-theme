@@ -115,9 +115,10 @@ trait FormFieldsHelperTrait {
         ));
     }
 
-    public function addTextDateTime(FormBuilderInterface $builder, array $options = array(), $label = 'Fecha', $field = 'fecha', $disabled = false, $title = '') {
+    public function addTextDateTime(FormBuilderInterface $builder, array $options = array(), $label = 'Fecha', $field = 'fecha', $disabled = false, $title = '', $required = true) {
         $builder->add($field, DateTimeType::class, array(
             'label' => $label,
+            'required' => $required,
             'widget' => 'single_text',
             'format' => 'dd/MM/yyyy HH:mm',
             'attr' => array(
