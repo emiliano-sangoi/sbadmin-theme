@@ -107,7 +107,8 @@ trait FormFieldsHelperTrait {
             'label' => $label,
             'required' => $required,
             'attr' => array(
-                'class' => 'form-control'
+                'class' => 'form-control',
+                'placeholder' => 'Correo electrónico de contacto',
             ),
             'constraints' => array(
                 new Email(array('message' => 'Formato de correo invalido'))
@@ -139,7 +140,8 @@ trait FormFieldsHelperTrait {
             'required' => false,
             'disabled' => $disabled,
             'attr' => array(
-                'class' => 'js-datepicker enmascarar-fecha'
+                'class' => 'js-datepicker enmascarar-fecha',
+                'placeholder' => 'Fecha',
             ),
             'label_attr' => array(
                 'class' => ''

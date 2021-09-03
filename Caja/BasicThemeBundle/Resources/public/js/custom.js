@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     $('.select2-basico').select2({
         theme: 'bootstrap4',
-        placeholder: "Seleccione una opción",
+//        placeholder: " ",
         allowClear: true
     });
     
