@@ -151,6 +151,8 @@ trait FormFieldsHelperTrait {
 
     public function addMesType(FormBuilderInterface $builder, array $options = array(), $label = 'Mes', $field = 'mes', $required = false, $disabled = false) {
 
+         $this->mes = (isset($options['data']['mes']) && !empty($options['data']['mes'])) ? $options['data']['mes'] : null;
+        
         $meses = array(
             'Enero' => '01',
             'Febrero' => '02',
@@ -176,7 +178,7 @@ trait FormFieldsHelperTrait {
             'attr' => array('class' => 'select2-basico form-control'),
             'multiple' => false,
             'expanded' => false,
-            'data' => date('m'),
+            'data' => $this->mes ? $this->mes : date('m'),
             'disabled' => $disabled
         );
 
