@@ -130,17 +130,22 @@ trait FormFieldsHelperTrait {
         ));
     }
 
-    public function addTextDate(FormBuilderInterface $builder, array $options = array(), $label = 'Fecha', $field = 'fecha', $disabled = false, $placeholder = 'Ingrese una fecha') {
+    public function addTextDate(FormBuilderInterface $builder, array $options = array(), $label = 'Fecha', $field = 'fecha', $disabled = false, $placeholder = 'Ingrese una fecha', $required = false) {
         $builder->add($field, DateType::class, array(
             'widget' => 'single_text',
             // previene el renderizado con type="date" para prevenir el datepicker de HTML
             'html5' => false,
             'format' => 'dd/MM/yyyy',
             'label' => $label,
-            'required' => false,
+            'required' => $required,
             'disabled' => $disabled,
             'attr' => array(
                 'class' => 'js-datepicker enmascarar-fecha',
+                
+                //Esto es para desactivar la sugerencia de Chrome: 
+                // Sacado de https://stackoverflow.com/questions/37595141/disable-chrome-autofill-creditcard
+                'autocomplete' => 'cc-csc',
+                
                 'placeholder' => 'Fecha',
             ),
             'label_attr' => array(
@@ -150,8 +155,6 @@ trait FormFieldsHelperTrait {
     }
 
     public function addMesType(FormBuilderInterface $builder, array $options = array(), $label = 'Mes', $field = 'mes', $required = false, $disabled = false) {
-
-         $this->mes = (isset($options['data']['mes']) && !empty($options['data']['mes'])) ? $options['data']['mes'] : null;
         
         $meses = array(
             'Enero' => '01',
@@ -177,8 +180,7 @@ trait FormFieldsHelperTrait {
             ),
             'attr' => array('class' => 'select2-basico form-control'),
             'multiple' => false,
-            'expanded' => false,
-            'data' => $this->mes ? $this->mes : date('m'),
+            'expanded' => false,            
             'disabled' => $disabled
         );
 
