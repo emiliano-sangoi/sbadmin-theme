@@ -1,9 +1,10 @@
 {% extends "@CajaBasicTheme/errores-http/error-base.html.twig" %}
 
 {% set show_context_info = true %}
+{% set card_header_css = 'bg-primary text-light' %}
 
 {% set msg_error_titulo = 'Recurso NO encontrado' %}
-{% set css_text_color = 'text-info' %}
+{% set css_text_color = 'text-primary' %}
 
 {% set msg_error_html %}
     <p>
@@ -11,6 +12,6 @@
     </p>
     <p>
         Si usted ha sido redireccionado hasta esta página por el sistema, por favor escriba un correo electrónico a la 
-        dirección <i class='font-weight-bold'>{{ app_email_soporte|default('email.soporte@mail.com') }}</i> anexando la siguiente informacion.
+        dirección <b><i>{{ bt_app_email_soporte|default('email.soporte@mail.com') }}</i></b> anexando la siguiente informacion.
     </p>
 {% endset %}

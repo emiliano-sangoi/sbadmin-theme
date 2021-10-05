@@ -2,7 +2,7 @@
 {# 
     https://getbootstrap.com/docs/4.0/components/card/#titles-text-and-links
 #}
-<div class="card card-basica border-0">
+<div class="card card-basica border-0 {{ card_basica_css|default('')}}">
 
     <h2 class="card-header {{ card_header_css is defined ? card_header_css : 'bg-secondary text-light'}} font-weight-bold">
 
