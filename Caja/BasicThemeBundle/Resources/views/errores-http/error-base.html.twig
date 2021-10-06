@@ -1,6 +1,9 @@
 <div class="">
+    
+    {% set header_title = status_code ~ ' - ' ~ msg_error_titulo|default('Error') %}
+    {% set card_basica_css = 'shadow' %}
 
-    {% embed "@CajaBasicTheme/partials/card-basica.html.twig" with { 'codigo_ayuda' : '', 'card_header_content' : 'Información del error' } %}
+    {% embed "@CajaBasicTheme/partials/card-basica.html.twig" with { 'codigo_ayuda' : '', 'card_header_content' : header_title|upper } %}
         {% block card_body %}
             <div>
                 {{ msg_error_html }}
@@ -18,7 +21,7 @@
                     {% from '@CajaBasicTheme/macros.html.twig' import btn_primary, btn_link %}
 
                     {% block left %}
-                        <a href='{{ target_uri|default('#') }}' class='btn btn-primary'>
+                        <a href='{{ target_uri|default('#') }}' class='btn {{ target_btn_css|default('btn-secondary') }}'>
                             {#<i class='bi-house-fill'></i>&nbsp;#}
                             {{ target_label|default('Ir al inicio') }}
                         </a>                                     
