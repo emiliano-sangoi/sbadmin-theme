@@ -2,6 +2,8 @@
 
 namespace Caja\BasicThemeBundle\Traits;
 
+use Caja\UtilsBundle\Util\Util;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -61,6 +63,7 @@ trait FormFieldsHelperTrait {
         }
 
         $builder->add($field, TextType::class, $conf);
+        $this->setDataTransformers($builder, $options);
     }
 
     public function addInteger(FormBuilderInterface $builder, array $options = array(), $label = 'ID', $field = 'id', $disabled = true, $min = 1, $ph = '') {
@@ -188,4 +191,25 @@ trait FormFieldsHelperTrait {
         $builder->add($field, ChoiceType::class, $conf);
     }
 
+    
+      /**
+     * Setea los Model y View Transformers.
+     *
+     * @param FormBuilderInterface $builder [description]
+     * @param array                $options [description]
+     */
+    public function setDataTransformers(FormBuilderInterface $builder, array $options) {
+
+        //$builder->get('fechaAprobacion')->addViewTransformer();
+        $builder->get('cuil')->addViewTransformer(
+                new CallbackTransformer(
+                function ($cuilSinGuiones) {
+            // conversion: modelo -> vista
+            return $cuilSinGuiones;
+        }, function ($cuilConGuiones) {
+            // conversion: 12-12121212-1 -> 12121212121
+            return Util::sanitizeCUIT($cuilConGuiones);
+        }
+        ));
+    }
 }
