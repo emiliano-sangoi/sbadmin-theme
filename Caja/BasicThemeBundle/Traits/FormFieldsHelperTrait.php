@@ -66,7 +66,7 @@ trait FormFieldsHelperTrait {
         $this->setDataTransformers($builder, $options);
     }
 
-    public function addInteger(FormBuilderInterface $builder, array $options = array(), $label = 'ID', $field = 'id', $disabled = true, $min = 1, $ph = '') {
+    public function addInteger(FormBuilderInterface $builder, array $options = array(), $label = 'ID', $field = 'id', $disabled = true, $min = 1, $ph = '', $max = false) {
         $conf = array(
             'label' => $label,
             'disabled' => $disabled,
@@ -79,6 +79,10 @@ trait FormFieldsHelperTrait {
         if (is_int($min)) {
             $conf['attr']['min'] = $min;
         }
+        if (is_int($max)) {
+            $conf['attr']['max'] = $max;
+        }
+        
         $builder->add($field, IntegerType::class, $conf);
     }
 
