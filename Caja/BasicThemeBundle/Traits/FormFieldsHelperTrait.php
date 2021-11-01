@@ -109,10 +109,12 @@ trait FormFieldsHelperTrait {
         ));
     }
 
-    public function addEmail(FormBuilderInterface $builder, array $options = array(), $label = 'Email', $field = 'email', $required = true) {
-        $builder->add($field, EmailType::class, array(
+    public function addEmail(FormBuilderInterface $builder, array $options = array(), $label = 'Email', $field = 'email', $required = true, $disabled = false) {
+        
+        $config = array(
             'label' => $label,
             'required' => $required,
+            'disabled' => $disabled,
             'attr' => array(
                 'class' => 'form-control',
                 'placeholder' => 'Correo electrónico de contacto',
@@ -120,7 +122,16 @@ trait FormFieldsHelperTrait {
             'constraints' => array(
                 new Email(array('message' => 'Formato de correo invalido'))
             )
-        ));
+        );
+        
+        if($required){
+            $config['constraints'][] = new NotBlank(array(
+                'message' => 'Campo obligatorio'
+            ));
+        }
+        
+        
+        $builder->add($field, EmailType::class, $config);
     }
 
     public function addTextDateTime(FormBuilderInterface $builder, array $options = array(), $label = 'Fecha', $field = 'fecha', $disabled = false, $title = '', $required = true) {
