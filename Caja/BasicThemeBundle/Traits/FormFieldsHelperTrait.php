@@ -70,7 +70,7 @@ trait FormFieldsHelperTrait {
         $this->setDataTransformers($builder, $options);
     }
 
-    public function addInteger(FormBuilderInterface $builder, array $options = array(), $label = 'ID', $field = 'id', $disabled = true, $min = 1, $ph = '') {
+    public function addInteger(FormBuilderInterface $builder, array $options = array(), $label = 'ID', $field = 'id', $disabled = true, $min = 1, $ph = '', $max = false) {
         $conf = array(
             'label' => $label,
             'disabled' => $disabled,
@@ -83,6 +83,10 @@ trait FormFieldsHelperTrait {
         if (is_int($min)) {
             $conf['attr']['min'] = $min;
         }
+        if (is_int($max)) {
+            $conf['attr']['max'] = $max;
+        }
+        
         $builder->add($field, IntegerType::class, $conf);
     }
 
@@ -109,10 +113,12 @@ trait FormFieldsHelperTrait {
         ));
     }
 
-    public function addEmail(FormBuilderInterface $builder, array $options = array(), $label = 'Email', $field = 'email', $required = true) {
-        $builder->add($field, EmailType::class, array(
+    public function addEmail(FormBuilderInterface $builder, array $options = array(), $label = 'Email', $field = 'email', $required = true, $disabled = false) {
+        
+        $config = array(
             'label' => $label,
             'required' => $required,
+            'disabled' => $disabled,
             'attr' => array(
                 'class' => 'form-control',
                 'placeholder' => 'Correo electrónico de contacto',
@@ -120,7 +126,16 @@ trait FormFieldsHelperTrait {
             'constraints' => array(
                 new Email(array('message' => 'Formato de correo invalido'))
             )
-        ));
+        );
+        
+        if($required){
+            $config['constraints'][] = new NotBlank(array(
+                'message' => 'Campo obligatorio'
+            ));
+        }
+        
+        
+        $builder->add($field, EmailType::class, $config);
     }
 
     public function addTextDateTime(FormBuilderInterface $builder, array $options = array(), $label = 'Fecha', $field = 'fecha', $disabled = false, $title = '', $required = true) {
