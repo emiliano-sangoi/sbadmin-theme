@@ -28,12 +28,14 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 trait FormFieldsHelperTrait {
 
     public function addActivo(FormBuilderInterface $builder, array $options = array(), $label = '¿Activo?', $field = 'activo') {
+        
+        $opt = array(
+            'Si' => true,
+            'No' => false);
+            
         $builder->add($field, ChoiceType::class, array(
             'label' => $label,
-            'choices' => [
-                'Si' => true,
-                'No' => false,
-            ],
+            'choices' => $opt,
             'expanded' => true,
             'choice_attr' => array(
                 'class' => ''
@@ -41,7 +43,9 @@ trait FormFieldsHelperTrait {
             'attr' => array(
                 'class' => '',
                 'style' => '',
-            )
+            ),
+            'data' => $opt['Si'],
+            
         ));
     }
 
