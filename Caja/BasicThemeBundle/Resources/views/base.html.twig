@@ -113,7 +113,7 @@
                     {% endblock %}
 
                     <h1 class="font-weight-bold mb-0" id="pagina-titulo-principal">
-                        {{ titulo_pagina | default('Titulo de la pagina') }}
+                        {{ titulo_pagina| upper | default('Titulo de la pagina') }}
                         {%  if subtitulo is defined %}
                             <span class="align-middle">&middot;</span> <small class="text-light align-middle">{{ subtitulo }}</small>
                         {% endif %}
@@ -272,6 +272,10 @@
 
             {% block ayuda_js %}                
             {% endblock %}
+            
+            {% block usuarios_js %}
+            {# Modal para mostrar información del usuario #}
+            {% endblock %}
 
             {# ======================================================================================================== #}
 
@@ -291,7 +295,7 @@
             </script>
 
         {% endblock %}
-
+        
 
     </body>
 

@@ -149,7 +149,7 @@
 {% macro card_simple(texto = "", css = 'my-2 my-lg-3' ) %}
     {% embed "@CajaBasicTheme/partials/card-basica-sin-header.html.twig" with { 'css' : css } %}
         {% block card_body %}
-            {{ texto }}
+            <span class="text-muted">{{ texto }}</span>
         {% endblock card_body %}
     {% endembed %}
 {% endmacro %}
