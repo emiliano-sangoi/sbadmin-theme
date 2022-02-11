@@ -2013,6 +2013,7 @@ fieldset:disabled a.btn {
     .btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-secondary.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5); }
 
+    
 .btn-success {
   color: white;
   background-color: #28a745;
@@ -2109,6 +2110,14 @@ fieldset:disabled a.btn {
     .btn-danger:not(:disabled):not(.disabled):active:focus, .btn-danger:not(:disabled):not(.disabled).active:focus, .show > .btn-danger.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5); }
 
+.btn-buscar-liquidaciones {
+  color: white;
+  background-color: #6c757d;
+  border-color: #6c757d; 
+  position: relative;
+  top: +28px;
+  left: +15px;  }    
+    
 .btn-light {
   color: #212529;
   background-color: #f8f9fa;
