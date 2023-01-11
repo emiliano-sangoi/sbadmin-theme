@@ -101,3 +101,12 @@ form #ajustes_ws_wsHabilitado label{
     margin-left: .2em;
 }
 
+.multiselect-native-select .dropdown-item-text{
+    font-weight: bold !important;
+    color: $secondary;
+}
+
+.multiselect-native-select .form-check-label{
+    font-weight: normal !important;
+}
+
