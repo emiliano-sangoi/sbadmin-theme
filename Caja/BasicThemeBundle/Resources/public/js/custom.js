@@ -29,7 +29,7 @@ $(document).ready(function () {
 
     // ===========================================================================================
     // Ocultar notificaciones luego de X segundos
-    var duracion = 4000;
+    var duracion = 3000;
     setTimeout(function () {
         $('.auto-dismiss-notification').fadeOut(600);
     }, duracion);
