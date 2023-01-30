@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 .bootbox{
-    $aux: .8rem;
+    $aux: .6rem;
 
     .modal-header{
         background-color: $primary;
@@ -30,8 +30,8 @@ and open the template in the editor.
 
     }
     .modal-body .bootbox-body{
-        padding-left: $aux;
-        padding-right: $aux;
+        //padding-left: $aux;
+        //padding-right: $aux;
 
         h3{
             font-size: 1.3rem;            
