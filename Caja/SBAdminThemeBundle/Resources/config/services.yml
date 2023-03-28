@@ -1,0 +1,4 @@
+services:
+#    caja_basic_theme.example:
+#        class: Caja\SBAdminThemeBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

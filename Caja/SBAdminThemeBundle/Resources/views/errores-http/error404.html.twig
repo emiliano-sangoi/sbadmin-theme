@@ -1,0 +1,17 @@
+{% extends "@CajaSBAdminTheme/errores-http/error-base.html.twig" %}
+
+{% set show_context_info = true %}
+{% set card_header_css = 'bg-primary text-light' %}
+
+{% set msg_error_titulo = 'Recurso NO encontrado' %}
+{% set css_text_color = 'text-primary' %}
+
+{% set msg_error_html %}
+    <p>
+        La página u archivo a la que intenta acceder no existe. Revise la URL de la pagina actual si la misma ha sido ingresada manualmente.
+    </p>
+    <p>
+        Si usted ha sido redireccionado hasta esta página por el sistema, por favor escriba un correo electrónico a la 
+        dirección <b><i>{{ bt_app_email_soporte|default('email.soporte@mail.com') }}</i></b> anexando la siguiente informacion.
+    </p>
+{% endset %}

@@ -1,0 +1,19 @@
+{% extends "@CajaSBAdminTheme/errores-http/error-base.html.twig" %}
+
+{% set show_context_info = true %}
+{% set card_header_css = 'bg-warning text-light' %}
+
+{% set msg_error_titulo = 'Acceso denegado' %}
+{% set css_text_color = 'text-warning' %}
+
+{% set msg_error_html %}
+    <p class=''>
+        Este error significa que no cuenta con los permisos suficientes para acceder a esta funcionalidad.
+    </p>               
+    <p> 
+        Si considera que debería poder acceder a esta sección, escriba un correo electrónico a la dirección 
+        <span class='font-weight-bold'><i>{{ bt_app_email_soporte|default('email.soporte@mail.com') }}</i></span>
+        anexando la siguiente información en el cuerpo del correo:
+    </p>
+{% endset %}
+

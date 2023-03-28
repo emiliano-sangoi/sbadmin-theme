@@ -1,5 +1,5 @@
 {
-    "name": "caja/basic-theme-bundle",
+    "name": "caja/sbadmin-theme-bundle",
     "type": "bundle",
     "description": "Bundle para la gestión y consultas de ayudas y etiquetas.",
     "keywords": [
@@ -9,7 +9,7 @@
         "theme",
         "bootstrap"
     ],
-    "homepage": "https://git.santafe.gov.ar/mtyss/basic-theme-bundle",
+    "homepage": "https://git.santafe.gov.ar/mtyss/sbadmin-theme-bundle",
     "license": "MIT",
     "authors": [
         {
@@ -30,7 +30,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Caja\\BasicThemeBundle\\": ""
+            "Caja\\SBAdminThemeBundle\\": ""
         }
     },
     "config": {
