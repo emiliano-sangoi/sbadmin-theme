@@ -1,0 +1,3 @@
+caja_sbadmin_theme_index:
+    path:     /inicio
+    defaults: { _controller: CajaSBAdminThemeBundle:Default:index }

@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('CajaSBAdminThemeBundle:Default:index.html.twig');
+        return $this->render('@CajaSBAdminTheme/default/index.html.twig');
     }
 }

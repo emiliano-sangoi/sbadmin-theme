@@ -2,7 +2,7 @@
 
 namespace Caja\SBAdminThemeBundle\Twig;
 
-use Caja\SBAdminThemeBundle\Util\Util;
+use Caja\UtilsBundle\Util\Util;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 

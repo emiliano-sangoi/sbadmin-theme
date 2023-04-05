@@ -1,6 +1,6 @@
 <?php
 
-namespace Caja\AdminThemeBundle;
+namespace Caja\SBAdminThemeBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
