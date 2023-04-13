@@ -1,0 +1,45 @@
+// 
+// Sidenav Primary
+// 
+
+// Primary theme for sidenav
+// Append .sb-sidenav-primary to .sb-sidenav to use
+
+.sb-sidenav-primary {
+    background-color: $sidenav-primary-bg;
+    color: $sidenav-primary-color;
+
+    .sb-sidenav-menu {
+        .sb-sidenav-menu-heading {
+            color: $sidenav-primary-heading-color;
+        }
+
+        .nav-link {
+            color: $sidenav-primary-link-color;
+
+            .sb-nav-link-icon {
+                color: $sidenav-primary-icon-color;
+            }
+
+            .sb-sidenav-collapse-arrow {
+                color: $sidenav-primary-icon-color;
+            }
+
+            &:hover {
+                color: $sidenav-primary-link-active-color;
+            }
+
+            &.active {
+                color: $sidenav-primary-link-active-color;
+
+                .sb-nav-link-icon {
+                    color: $sidenav-primary-link-active-color;
+                }
+            }
+        }
+    }
+
+    .sb-sidenav-footer {
+        background-color: $sidenav-primary-footer-bg;
+    }
+}

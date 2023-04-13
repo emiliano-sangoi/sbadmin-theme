@@ -18,6 +18,15 @@ $sidenav-dark-link-active-color: $white;
 $sidenav-dark-icon-color: fade-out($white, 0.75);
 $sidenav-dark-footer-bg: $gray-800;
 
+// -- Sidenav Primary
+$sidenav-primary-bg: $primary;
+$sidenav-primary-color: fade-out($white, 0.5);
+$sidenav-primary-heading-color: fade-out($white, 0.75);
+$sidenav-primary-link-color: fade-out($white, 0.2);
+$sidenav-primary-link-active-color: $white;
+$sidenav-primary-icon-color: fade-out($white, 0.75);
+$sidenav-primary-footer-bg: #0096C7 /* https://coolors.co/palette/03045e-023e8a-0077b6-0096c7-00b4d8-48cae4-90e0ef-ade8f4-caf0f8 */;
+
 // -- Sidenav Light
 $sidenav-light-bg: $gray-100;
 $sidenav-light-color: $gray-900;
@@ -30,3 +39,4 @@ $sidenav-light-footer-bg: $gray-200;
 // Color variables for the topnav
 $topnav-dark-toggler-color: fade-out($white, 0.5);
 $topnav-light-toggler-color: $gray-900;
+$topnav-primary-toggler-color: $sidenav-primary-link-color;

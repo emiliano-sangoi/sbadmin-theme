@@ -12,6 +12,17 @@
         padding-left: $navbar-padding-x;
         padding-right: $navbar-padding-x;
         margin: 0;
+        color: $topnav-primary-toggler-color;
+    }
+
+    .navbar-nav{
+        a i{
+            color: $light;
+        }
+
+        .dropdown-toggle::after{
+            color: $light;
+        }
     }
 
     &.navbar-dark {
@@ -23,6 +34,12 @@
     &.navbar-light {
         #sidebarToggle {
             color: $topnav-light-toggler-color;
+        }
+    }
+
+    &.navbar-primary {
+        #sidebarToggle {
+            color: $topnav-primary-toggler-color;
         }
     }
 }

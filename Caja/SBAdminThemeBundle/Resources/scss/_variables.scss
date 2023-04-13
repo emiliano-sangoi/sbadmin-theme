@@ -1,6 +1,23 @@
 // 
 // Variables
 // 
+//eaf4f4
+$gray-1: #e3e1e2;
+$gray-2: #e4e5e6;
+
+$primary: #0077B6 ; /* https://coolors.co/palette/03045e-023e8a-0077b6-0096c7-00b4d8-48cae4-90e0ef-ade8f4-caf0f8 */
+$warning: #fca311; /* https://coolors.co/palette/000000-14213d-fca311-e5e5e5-ffffff  */
+$success: #20bf55; /* https://coolors.co/palette/20bf55-0b4f6c-01baef-fbfbff-757575 */
+$verde1: #A4C3B2; /* https://coolors.co/palette/6b9080-a4c3b2-cce3de-eaf4f4-f6fff8 */
+$danger: #F15025; /* https://coolors.co/palette/f15025-ffffff-e6e8e6-ced0ce-191919 */
+$info: #1B9AAA; /* https://coolors.co/palette/050505-1b9aaa-dddbcb-f5f1e3-ffffff */
+
+//$secondary: #6c757d;
+
+//$form-row-margin: 1.5rem;
+/*$input-height: 28.3906px;*/
+
+$white: white;
 
 // Import Bootstrap variables for use within theme
 @import "bootstrap/scss/functions.scss";

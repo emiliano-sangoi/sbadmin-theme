@@ -1,3 +1,44 @@
 caja_sbadmin_theme_index:
     path:     /inicio
     defaults: { _controller: CajaSBAdminThemeBundle:Default:index }
+
+
+caja_sbadmin_theme_layout_static:
+    path:     /layout-static
+    defaults: { _controller: CajaSBAdminThemeBundle:Default:layoutStatic }
+
+caja_sbadmin_theme_layout_sidenav_light:
+    path:     /layout-sidenav-light
+    defaults: { _controller: CajaSBAdminThemeBundle:Default:layoutSidenavLight }
+
+caja_sbadmin_theme_login:
+    path:     /login
+    defaults: { _controller: CajaSBAdminThemeBundle:Default:login }
+
+caja_sbadmin_theme_register:
+    path:     /register
+    defaults: { _controller: CajaSBAdminThemeBundle:Default:register }
+
+caja_sbadmin_theme_password:
+    path:     /password
+    defaults: { _controller: CajaSBAdminThemeBundle:Default:password }
+
+caja_sbadmin_theme_pages_401:
+    path:     /401
+    defaults: { _controller: CajaSBAdminThemeBundle:Default:pages401 }
+
+caja_sbadmin_theme_pages_404:
+    path:     /404
+    defaults: { _controller: CajaSBAdminThemeBundle:Default:pages404 }
+
+caja_sbadmin_theme_pages_500:
+    path:     /500
+    defaults: { _controller: CajaSBAdminThemeBundle:Default:pages500 }
+
+caja_sbadmin_theme_charts:
+    path:     /charts
+    defaults: { _controller: CajaSBAdminThemeBundle:Default:charts }
+
+caja_sbadmin_theme_tables:
+    path:     /tables
+    defaults: { _controller: CajaSBAdminThemeBundle:Default:tables }

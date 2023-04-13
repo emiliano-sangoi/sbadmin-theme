@@ -6,7 +6,7 @@
 @import "variables.scss";
 
 // Import Bootstrap
-@import "../public/node_modules/bootstrap/scss/bootstrap.scss";
+@import "bootstrap/scss/bootstrap.scss";
 
 // Import Custom SCSS
 @import "global.scss";
@@ -23,6 +23,7 @@
 @import "navigation/sidenav/sidenav.scss";
 @import "navigation/sidenav/sidenav-dark.scss";
 @import "navigation/sidenav/sidenav-light.scss";
+@import "navigation/sidenav/sidenav-primary.scss";
 
 // Plugins
 @import "plugins/simple-datatables.scss";
