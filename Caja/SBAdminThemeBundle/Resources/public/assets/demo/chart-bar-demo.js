@@ -1,46 +1,55 @@
-// Set new default font family and font color to mimic Bootstrap's default styling
-Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-Chart.defaults.global.defaultFontColor = '#292b2c';
+Highcharts.chart('containerBarChart', {
 
-// Bar Chart Example
-var ctx = document.getElementById("myBarChart");
-var myLineChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ["January", "February", "March", "April", "May", "June"],
-    datasets: [{
-      label: "Revenue",
-      backgroundColor: "rgba(2,117,216,1)",
-      borderColor: "rgba(2,117,216,1)",
-      data: [4215, 5312, 6251, 7841, 9821, 14984],
-    }],
+  chart: {
+    type: 'column'
   },
-  options: {
-    scales: {
-      xAxes: [{
-        time: {
-          unit: 'month'
-        },
-        gridLines: {
-          display: false
-        },
-        ticks: {
-          maxTicksLimit: 6
-        }
-      }],
-      yAxes: [{
-        ticks: {
-          min: 0,
-          max: 15000,
-          maxTicksLimit: 5
-        },
-        gridLines: {
-          display: true
-        }
-      }],
-    },
-    legend: {
-      display: false
+
+  title: {
+    text: 'Olympic Games all-time medal table, grouped by continent',
+    align: 'left'
+  },
+
+  xAxis: {
+    categories: ['Gold', 'Silver', 'Bronze']
+  },
+
+  yAxis: {
+    allowDecimals: false,
+    min: 0,
+    title: {
+      text: 'Count medals'
     }
-  }
+  },
+
+  tooltip: {
+    formatter: function () {
+      return '<b>' + this.x + '</b><br/>' +
+          this.series.name + ': ' + this.y + '<br/>' +
+          'Total: ' + this.point.stackTotal;
+    }
+  },
+
+  plotOptions: {
+    column: {
+      stacking: 'normal'
+    }
+  },
+
+  series: [{
+    name: 'Norway',
+    data: [148, 133, 124],
+    stack: 'Europe'
+  }, {
+    name: 'Germany',
+    data: [102, 98, 65],
+    stack: 'Europe'
+  }, {
+    name: 'United States',
+    data: [113, 122, 95],
+    stack: 'North America'
+  }, {
+    name: 'Canada',
+    data: [77, 72, 80],
+    stack: 'North America'
+  }]
 });

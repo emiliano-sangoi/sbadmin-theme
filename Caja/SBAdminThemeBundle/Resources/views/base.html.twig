@@ -20,10 +20,6 @@
         {#    <link rel="stylesheet" href="{{ asset('bundles/app/css/tags-ayuda.css') }}" type="text/css"> #}
         {#        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet"/> #}
 
-        <!-- simple-datatables CSS -->
-        <link href="{{ asset('bundles/cajasbadmintheme/node_modules/simple-datatables/dist/style.css') }}"
-              rel="stylesheet"/>
-
         <!-- Bootstrap icons -->
         <link href="{{ asset('bundles/cajasbadmintheme/node_modules/bootstrap-icons/font/bootstrap-icons.css') }}"
               rel="stylesheet"/>
@@ -35,7 +31,8 @@
         <link href="{{ asset('bundles/cajasbadmintheme/node_modules/@fortawesome/fontawesome-free/css/all.min.css') }}"
               rel="stylesheet"/>
 
-        <!-- Bootstrap CSS -->
+        <!-- Bootstrap Tables -->
+        <link href="{{ asset('bundles/cajasbadmintheme/node_modules/bootstrap-table/dist/bootstrap-table.min.css') }}" rel="stylesheet">
 
     {% endblock %}
 
@@ -60,11 +57,10 @@
                     <h1 class="mt-4">
                         {{ titulo_pagina | default('Sin título') }}
                     </h1>
-                    <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">
-                            {{ titulo_pagina | default('Sin título') }}
-                        </li>
-                    </ol>
+
+                    {% block breadcrumb %}
+                    {% endblock %}
+
                     {% block content %}
 
                     {% endblock %}

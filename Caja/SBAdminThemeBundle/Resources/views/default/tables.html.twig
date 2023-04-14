@@ -3,9 +3,9 @@
 {% block content %}
     <div class="card mb-4">
         <div class="card-body">
-            DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
-            <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-            .
+            Para realizar tablas se recomienda utilizar el plugin <span
+                    class="fw-bold fst-italic">Bootstrap Table</span> que permite generar tabla como la mostrada abajo
+            <a target="_blank" href="https://bootstrap-table.com/">Ver documentaci&oacute;n de Bootstrap Table </a>.
         </div>
     </div>
     <div class="card mb-4">
@@ -14,7 +14,7 @@
             DataTable Example
         </div>
         <div class="card-body">
-            {% include '@CajaSBAdminTheme/default/tabla-empleados.html.twig' %}
+            {% include '@CajaSBAdminTheme/default/tables-bt.html.twig' %}
         </div>
     </div>
 
@@ -23,6 +23,10 @@
 {% block javascript %}
     {{ parent() }}
 
-    <script src="{{ asset('bundles/cajasbadmintheme/js/datatables-simple-demo.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+
+        });
+    </script>
 {% endblock %}
 

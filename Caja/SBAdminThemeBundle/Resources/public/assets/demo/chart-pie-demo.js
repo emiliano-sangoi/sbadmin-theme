@@ -1,16 +1,65 @@
-// Set new default font family and font color to mimic Bootstrap's default styling
-Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-Chart.defaults.global.defaultFontColor = '#292b2c';
-
-// Pie Chart Example
-var ctx = document.getElementById("myPieChart");
-var myPieChart = new Chart(ctx, {
-  type: 'pie',
-  data: {
-    labels: ["Blue", "Red", "Yellow", "Green"],
-    datasets: [{
-      data: [12.21, 15.58, 11.25, 8.32],
-      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
-    }],
+// Data retrieved from https://netmarketshare.com
+Highcharts.chart('containerPieChart', {
+  chart: {
+    plotBackgroundColor: null,
+    plotBorderWidth: null,
+    plotShadow: false,
+    type: 'pie'
   },
+  title: {
+    text: 'Browser market shares in May, 2020',
+    align: 'left'
+  },
+  tooltip: {
+    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  },
+  accessibility: {
+    point: {
+      valueSuffix: '%'
+    }
+  },
+  plotOptions: {
+    pie: {
+      allowPointSelect: true,
+      cursor: 'pointer',
+      dataLabels: {
+        enabled: true,
+        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+      }
+    }
+  },
+  series: [{
+    name: 'Brands',
+    colorByPoint: true,
+    data: [{
+      name: 'Chrome',
+      y: 70.67,
+      sliced: true,
+      selected: true
+    }, {
+      name: 'Edge',
+      y: 14.77
+    },  {
+      name: 'Firefox',
+      y: 4.86
+    }, {
+      name: 'Safari',
+      y: 2.63
+    }, {
+      name: 'Internet Explorer',
+      y: 1.53
+    },  {
+      name: 'Opera',
+      y: 1.40
+    }, {
+      name: 'Sogou Explorer',
+      y: 0.84
+    }, {
+      name: 'QQ',
+      y: 0.51
+    }, {
+      name: 'Other',
+      y: 2.6
+    }]
+  }]
 });

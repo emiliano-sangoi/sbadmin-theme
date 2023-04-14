@@ -1,3 +1,4 @@
 #! /bin/bash
 
 sass scss/styles.scss public/css/styles.css --style compressed
+sass scss/charts.scss public/css/charts.css --style compressed

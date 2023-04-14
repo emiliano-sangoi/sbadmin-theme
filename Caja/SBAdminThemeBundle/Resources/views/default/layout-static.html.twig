@@ -2,6 +2,13 @@
 
 {% set body_css = '' %}
 
+{% block breadcrumb %}
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ path('caja_sbadmin_theme_index') }}">Dashboard</a></li>
+        <li class="breadcrumb-item active">Static Navigation</li>
+    </ol>
+{% endblock %}
+
 {% block content %}
     <div class="card mb-4">
         <div class="card-body">

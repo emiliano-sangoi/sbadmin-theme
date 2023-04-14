@@ -143,6 +143,22 @@
     </div>
 {% endmacro %}
 
+{% macro notificacion_basic(card_body, type = 'info', card_link_label = 'Ver más', card_link_href = "#") %}
+    <div class="card bg-{{ type }} text-white">
+        <div class="card-body">
+            {{ card_body|default(' - ') }}
+        </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <a class="small text-white stretched-link" href="{{ card_link_href }}">
+                {{ card_link_label }}
+            </a>
+            <div class="small text-white">
+                <i class="fas fa-angle-right"></i>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
 <!-- ====================================================================================== -->
 <!-- Cards  -->
 {# Modelos mas complejos se pueden separar en plantillas en partials/ #}

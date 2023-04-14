@@ -8,12 +8,17 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('@CajaSBAdminTheme/default/index.html.twig');
+
+        return $this->render('@CajaSBAdminTheme/default/index.html.twig', [
+            'titulo_pagina' => 'Dashboard'
+        ]);
     }
 
     public function layoutStaticAction()
     {
-        return $this->render('@CajaSBAdminTheme/default/layout-static.html.twig');
+        return $this->render('@CajaSBAdminTheme/default/layout-static.html.twig', [
+            'titulo_pagina' => 'Static Navigation'
+        ]);
     }
 
     public function layoutSidenavLightAction()
@@ -53,12 +58,16 @@ class DefaultController extends Controller
 
     public function chartsAction()
     {
-        return $this->render('@CajaSBAdminTheme/default/charts.html.twig');
+        return $this->render('@CajaSBAdminTheme/default/charts.html.twig', [
+            'titulo_pagina' => 'Charts'
+        ]);
     }
 
     public function tablesAction()
     {
-        return $this->render('@CajaSBAdminTheme/default/tables.html.twig');
+        return $this->render('@CajaSBAdminTheme/default/tables.html.twig', [
+            'titulo_pagina' => 'Tables'
+        ]);
     }
 
 }

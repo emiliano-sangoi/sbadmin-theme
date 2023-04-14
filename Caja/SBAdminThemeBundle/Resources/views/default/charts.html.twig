@@ -1,5 +1,11 @@
 {% extends '@CajaSBAdminTheme/base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link href="{{ asset('bundles/cajasbadmintheme/css/charts.css') }}" rel="stylesheet"/>
+{% endblock %}
+
 {% block content %}
     <div class="card mb-4">
         <div class="card-body">
@@ -15,7 +21,14 @@
             Area Chart Example
         </div>
         <div class="card-body">
-            <canvas id="myAreaChart" width="100%" height="30"></canvas>
+            <figure class="highcharts-figure">
+                <div id="containerAreaChart"></div>
+                <p class="highcharts-description">
+                    Demonstrating a basic area chart, also known as a mountain chart.
+                    Area charts are similar to line charts, but commonly used to visualize
+                    volumes.
+                </p>
+            </figure>
         </div>
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
     </div>
@@ -27,7 +40,14 @@
                     Bar Chart Example
                 </div>
                 <div class="card-body">
-                    <canvas id="myBarChart" width="100%" height="50"></canvas>
+                    <figure class="highcharts-figure">
+                        <div id="containerBarChart"></div>
+                        <p class="highcharts-description">
+                            Chart showing stacked columns with grouping, allowing specific series to
+                            be stacked on the same column. Stacking is often used to visualize
+                            data that accumulates to a sum.
+                        </p>
+                    </figure>
                 </div>
                 <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
             </div>
@@ -39,7 +59,14 @@
                     Pie Chart Example
                 </div>
                 <div class="card-body">
-                    <canvas id="myPieChart" width="100%" height="50"></canvas>
+                    <figure class="highcharts-figure">
+                        <div id="containerPieChart"></div>
+                        <p class="highcharts-description">
+                            Pie charts are very popular for showing a compact overview of a
+                            composition or comparison. While they can be harder to read than
+                            column charts, they remain a popular choice for small datasets.
+                        </p>
+                    </figure>
                 </div>
                 <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
             </div>
@@ -49,8 +76,24 @@
 {% endblock %}
 
 {% block javascript %}
-    {{ parent() }}
+{{ parent() }}
 
-    <script src="{{ asset('bundles/cajasbadmintheme/assets/demo/chart-pie-demo.js') }}"></script>
+{# https://www.highcharts.com/ #}
+{# Liberia para realizar graficos #}
+<script src="{{ asset('bundles/cajasbadmintheme/node_modules/highcharts/highcharts.js') }}"></script>
+
+{# El siguiente modulo habilita las funcionalides para exportar a JPG, PNG, PDF, SVG #}
+<script src="{{ asset('bundles/cajasbadmintheme/node_modules/highcharts/modules/exporting.js') }}"></script>
+
+{# El siguiente modulo habilita las opciones: Download CSV, Download XLS y View data table en el menu #}
+<script src="{{ asset('bundles/cajasbadmintheme/node_modules/highcharts/modules/export-data.js') }}"></script>
+
+{# El siguiente modulo habilita algunas funciones de pantalla completa y dialogo de imprimir #}
+<script src="{{ asset('bundles/cajasbadmintheme/node_modules/highcharts/modules/accessibility.js') }}"></script>
+
+<script src="{{ asset('bundles/cajasbadmintheme/assets/demo/chart-area-demo.js') }}"></script>
+<script src="{{ asset('bundles/cajasbadmintheme/assets/demo/chart-bar-demo.js') }}"></script>
+<script src="{{ asset('bundles/cajasbadmintheme/assets/demo/chart-pie-demo.js') }}"></script>
+
 {% endblock %}
 

@@ -1,42 +1,35 @@
 {% extends '@CajaSBAdminTheme/base.html.twig' %}
 
+{% block breadcrumb %}
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">
+            Dashboard
+        </li>
+    </ol>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link href="{{ asset('bundles/cajasbadmintheme/css/charts.css') }}" rel="stylesheet"/>
+{% endblock %}
+
 {% block content %}
-    <div class="row">
+
+    {% from '@CajaSBAdminTheme/macros.html.twig' import notificacion_basic %}
+
+    <div class="row mb-4">
         <div class="col-xl-3 col-md-6">
-            <div class="card bg-info text-white mb-4">
-                <div class="card-body">Primary Card</div>
-                <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">View Details</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                </div>
-            </div>
+            {{ notificacion_basic('Info Card', 'info', 'Ver detalles') }}
         </div>
         <div class="col-xl-3 col-md-6">
-            <div class="card bg-warning text-white mb-4">
-                <div class="card-body">Warning Card</div>
-                <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">View Details</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                </div>
-            </div>
+            {{ notificacion_basic('Warning Card', 'warning', 'Ver detalles') }}
         </div>
         <div class="col-xl-3 col-md-6">
-            <div class="card bg-success text-white mb-4">
-                <div class="card-body">Success Card</div>
-                <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">View Details</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                </div>
-            </div>
+            {{ notificacion_basic('Warning Success', 'success', 'Ver detalles') }}
         </div>
         <div class="col-xl-3 col-md-6">
-            <div class="card bg-danger text-white mb-4">
-                <div class="card-body">Danger Card</div>
-                <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">View Details</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                </div>
-            </div>
+            {{ notificacion_basic('Danger Card', 'danger', 'Ver detalles') }}
         </div>
     </div>
     <div class="row">
@@ -47,7 +40,14 @@
                     Area Chart Example
                 </div>
                 <div class="card-body">
-                    <canvas id="myAreaChart" width="100%" height="40"></canvas>
+                    <figure class="highcharts-figure">
+                        <div id="containerAreaChart"></div>
+                        <p class="highcharts-description">
+                            Demonstrating a basic area chart, also known as a mountain chart.
+                            Area charts are similar to line charts, but commonly used to visualize
+                            volumes.
+                        </p>
+                    </figure>
                 </div>
             </div>
         </div>
@@ -58,7 +58,14 @@
                     Bar Chart Example
                 </div>
                 <div class="card-body">
-                    <canvas id="myBarChart" width="100%" height="40"></canvas>
+                    <figure class="highcharts-figure">
+                        <div id="containerBarChart"></div>
+                        <p class="highcharts-description">
+                            Chart showing stacked columns with grouping, allowing specific series to
+                            be stacked on the same column. Stacking is often used to visualize
+                            data that accumulates to a sum.
+                        </p>
+                    </figure>
                 </div>
             </div>
         </div>
@@ -69,7 +76,7 @@
             DataTable Example
         </div>
         <div class="card-body">
-            {% include '@CajaSBAdminTheme/default/tabla-empleados.html.twig' %}
+            {% include '@CajaSBAdminTheme/default/tables-bt.html.twig' %}
         </div>
     </div>
 {% endblock %}
@@ -77,7 +84,21 @@
 {% block javascript %}
 {{ parent() }}
 
+{# https://www.highcharts.com/ #}
+{# Liberia para realizar graficos #}
+<script src="{{ asset('bundles/cajasbadmintheme/node_modules/highcharts/highcharts.js') }}"></script>
+
+{# El siguiente modulo habilita las funcionalides para exportar a JPG, PNG, PDF, SVG #}
+<script src="{{ asset('bundles/cajasbadmintheme/node_modules/highcharts/modules/exporting.js') }}"></script>
+
+{# El siguiente modulo habilita las opciones: Download CSV, Download XLS y View data table en el menu #}
+<script src="{{ asset('bundles/cajasbadmintheme/node_modules/highcharts/modules/export-data.js') }}"></script>
+
+{# El siguiente modulo habilita algunas funciones de pantalla completa y dialogo de imprimir #}
+<script src="{{ asset('bundles/cajasbadmintheme/node_modules/highcharts/modules/accessibility.js') }}"></script>
+
 <script src="{{ asset('bundles/cajasbadmintheme/assets/demo/chart-area-demo.js') }}"></script>
 <script src="{{ asset('bundles/cajasbadmintheme/assets/demo/chart-bar-demo.js') }}"></script>
+
 {% endblock %}
 
