@@ -1,11 +1,11 @@
 {% if items|length > 0 %}
     <nav aria-label="breadcrumb" class="">
-        <ol class="breadcrumb rounded align-middle">
+        <ol class="breadcrumb fst-italic">
             {% block breadcrumbItems %}            
                 {% for item in items %}
                     {% if loop.last %}
                         <li class="breadcrumb-item active" aria-current="page">                              
-                            {{ item.translatedLabel|upper }}                        
+                            {{ item.translatedLabel }}
                         </li>
                     {% else %}
                         <li class="breadcrumb-item">
@@ -14,7 +14,7 @@
                                     {{ item.translatedLabel }}
                                 </a>
                             {% else %}
-                                <span class="text-muted">
+                                <span class="">
                                     {{ item.translatedLabel }}
                                 </span>                            
                             {% endif %}

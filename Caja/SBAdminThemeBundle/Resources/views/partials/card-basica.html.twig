@@ -1,24 +1,24 @@
-{# Card basico con titulo y subtitulo #}
-{# 
-    https://getbootstrap.com/docs/4.0/components/card/#titles-text-and-links
-#}
-<div class="card card-basica border-0 {{ card_basica_css|default('')}}">
-
-    <h2 class="card-header {{ card_header_css is defined ? card_header_css : 'bg-secondary text-light'}} font-weight-bold">
-
-        <div class="row">
+<div class="card shadow-sm {{ card_basica_css|default('') }} rounded-0">
+    <div class="card-header bg-{{ header_bg|default('pewter') }} border border-{{ header_bg|default('pewter') }} text-{{ header_text_color|default('brilliant-white') }} rounded-0">
+        <div class="row px-0">
             <div class="col-9">
-                {% block card_header %}
-                    {{ card_header_content|default('Información básica') }}
+                {% block icon %}
+                    {% if card_header_icon is defined %}
+                        <i class="{{ card_header_icon }}"></i>
+                    {% endif %}
                 {% endblock %}
+                <span class="fw-bold">
+                {% block card_header %}
+                    {{ card_header_content|default('Header') }}
+                {% endblock %}
+                    </span>
             </div>
-            <div class="col-3 text-right">
-                {% block card_actions %}            
-
+            <div class="col-3 text-end pr-0">
+                {% block card_actions %}
 
                     {% if codigo_ayuda|default(false) %}
                         <span class="d-inline-block">
-                            {% from '@CajaBasicTheme/macros.html.twig' import link_ayuda %}
+                            {% from '@CajaSBAdminTheme/macros.html.twig' import link_ayuda %}
                             {{ link_ayuda(codigo_ayuda) }}
                         </span>
                     {% endif %}
@@ -28,19 +28,22 @@
                         {% endblock %}
                     </span>
 
-                    {% if dropdown_visible|default(false) %}                    
-                        <div class="dropdown d-inline-block">                        
-                            <a class="dropdown-toggle p-0" style="cursor: pointer;" id="{{ dropdown_id|default('dropdownId') }}Button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                        
-                                {#                            <i class="bi-caret-down-fill small"></i>#}
-                                {#                            <i class="bi-three-dots small"></i>#}
-                                {#                                <i class="bi-list small text-light"></i>#}
+                    {% if dropdown_visible|default(false) %}
+                        <div class="dropdown d-inline-block">
+                            <a class="dropdown-toggle p-0" style="cursor: pointer;"
+                               id="{{ dropdown_id|default('dropdownId') }}Button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                {#                            <i class="bi-caret-down-fill small"></i> #}
+                                {#                            <i class="bi-three-dots small"></i> #}
+                                {#                                <i class="bi-list small text-light"></i> #}
                                 <i class="bi-three-dots-vertical small text-light"></i>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="{{ dropdown_id|default('dropdownId') }}Button" style="z-index: 100000 !important;">
+                            <div class="dropdown-menu" aria-labelledby="{{ dropdown_id|default('dropdownId') }}Button"
+                                 style="z-index: 100000 !important;">
                                 {% block dropdown_items %}
-                                    {#<a class="dropdown-item text-dark" href="#">Action</a>
+                                    {# <a class="dropdown-item text-dark" href="#">Action</a>
                                     <a class="dropdown-item text-dark" href="#">Another action</a>
-                                    <a class="dropdown-item text-dark" href="#">Something else here</a>#}
+                                    <a class="dropdown-item text-dark" href="#">Something else here</a> #}
                                 {% endblock %}
                             </div>
                         </div>
@@ -48,34 +51,20 @@
 
 
                 {% endblock %}
-
             </div>
         </div>
 
 
+    </div>
 
-
-        {#    <span class="action centrate-y">
-                
-            </span>#}
-
-        {#        {% if cardHeaderAction|default(false) %}
-                   
-                        <a href="{{ cardHeaderAction.href|default('#') }}" id="card-header-action">
-                            <i class="material-icons">{{ cardHeaderAction.icon|default('help') }}</i>
-                        </a>
-                   
-                {% endif %}#}
-    </h2>
-
-    <div class="card-body {{ card_body_padding is defined ? card_body_padding : 'p-2 p-md-3 p-lg-4' }}">
-        {#    <div class="card-body ">#}
+    <div class="card-body {{ card_body_padding is defined ? card_body_padding : 'p-3 p-md-4' }}">
+        {#    <div class="card-body "> #}
         {% block card_body %}
             <h3 class="card-title">
                 {{ card_title }}
             </h3>
             {% if card_subtitle is defined %}
-                <h6 class="card-subtitle mb-2 text-muted">        
+                <h6 class="card-subtitle mb-2 text-muted">
                     {{ card_subtitle }}
                 </h6>
             {% endif %}
@@ -99,11 +88,11 @@
     </div>
 
 
-
     <div class="">
         {% block card_footer %}
 
         {% endblock %}
     </div>
+
 
 </div>

@@ -1,27 +1,38 @@
 $(document).ready(function () {
 
 
-//    $('#datetimepicker1').datetimepicker();
-
-
     // Select2
     // https://select2.org/
-    // Definir Bootstrap por default para todos los selects:
-    //https://www.npmjs.com/package/select2-theme-bootstrap4
-    $.fn.select2.defaults.set("theme", "bootstrap4");
-
-
+    // https://apalfrey.github.io/select2-bootstrap-5-theme/
+    // ================================================================================================
     $('.select2-basico').select2({
-        theme: 'bootstrap4',
-//        placeholder: " ",
+        theme: "bootstrap-5",
+        width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+        placeholder: 'Selecciona una opción',
         allowClear: true
     });
-    
-    // ================================================================================================
-    // Multi select    
+
+
+    // Multi select
     // Crea un select multiple "generico" para usar en aquellos selectores que tengan la clase "select-multiple"
-    crearSelectMultiple('.select-multiple', false, null);
-    crearSelectMultiple('.select-multiple-con-filtro', true, null);
+    $('.select-multiple').select2({
+        theme: 'bootstrap-5',
+        width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+        placeholder: $( this ).data( 'placeholder' ),
+        closeOnSelect: false,
+        //selectionCssClass: 'select2--small',
+        //dropdownCssClass: 'select2--small'
+    });
+
+    // Select multiple con la opcion de limpiar campos
+    $( '.select-multiple-clear-field' ).select2( {
+        theme: "bootstrap-5",
+        width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+        //placeholder: $( this ).data( 'placeholder' ),
+        placeholder: 'Seleccione una o varias opciones',
+        closeOnSelect: false,
+        allowClear: true,
+    } );
 
 
     // Cuando cambia el departamento se debe actualizar el listado de localidades
@@ -147,6 +158,19 @@ $(document).ready(function () {
         "placeholder": "dd/mm/yyyy",
     });
 
+    // Máscara para fechas en formato yyyy:
+    $('.enmascarar-fecha-anio').inputmask({
+        "alias": "year",
+        "mask": "9999",
+        "placeholder": "YYYY"
+    });
+
+    $('.enmarcarar-nroliq').inputmask({
+        "alias": "nroliq",
+        "mask": "9",
+        "placeholder": "d"
+    });
+
     /*var itemActivo = null;
      $("#indice .dropdown-item").click(function(event){
      //console.log("holis");
@@ -186,55 +210,9 @@ function onChangeDepartamento(event) {
 
 }
 
-
-function crearSelectMultiple(selector, conFiltro, numberDisplayed){
-    
-    if(numberDisplayed === null || typeof numberDisplayed !== 'number' || numberDisplayed <= 0){
-        numberDisplayed = 3;
-    }    
-    
-    var fButtonText = function (options) {
-        if (options.length === 0) {
-            return 'Ninguno seleccionado';
-        } else if (options.length > numberDisplayed) {
-            return options.length + ' seleccionados';
-        } else {
-            var selected = [];
-            options.each(function () {
-                selected.push([$(this).text(), $(this).data('order')]);
-            });
-
-            selected.sort(function (a, b) {
-                return a[1] - b[1];
-            });
-
-            var text = '';
-            for (var i = 0; i < selected.length; i++) {
-                text += selected[i][0] + ', ';
-            }
-
-            return text.substr(0, text.length - 2);
-        }
-    };
-    
-    var conf = {
-        buttonWidth: '100%',
-        allSelectedText: 'Todas las opciones seleccionadas',
-        numberDisplayed: numberDisplayed,
-       // includeResetOption: true,
-       // includeResetDivider: true,
-       // resetText: 'Reiniciar',
-        buttonTextAlignment: 'left',
-        buttonText: fButtonText
-    };
-    
-    if(conFiltro){
-        conf.enableFiltering = true;
-        conf.filterPlaceholder = 'Filtrar ...';
+function btTableDefaultHeaderStyle(column) {
+    return {
+        // css: { 'font-weight': 'normal' },
+       // classes: 'bg-pewter fw-bold text-brilliant-white'
     }
-
-    $(selector).multiselect(conf);
-    
-    
-    
 }

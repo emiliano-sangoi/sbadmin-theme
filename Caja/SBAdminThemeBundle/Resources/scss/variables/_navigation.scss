@@ -27,12 +27,21 @@ $sidenav-primary-link-active-color: $white;
 $sidenav-primary-icon-color: fade-out($white, 0.75);
 $sidenav-primary-footer-bg: #0096C7 /* https://coolors.co/palette/03045e-023e8a-0077b6-0096c7-00b4d8-48cae4-90e0ef-ade8f4-caf0f8 */;
 
+// -- Sidenav Secondary
+$sidenav-secondary-bg: $secondary;
+$sidenav-secondary-color: fade-out($white, 0.5);
+$sidenav-secondary-heading-color: fade-out($white, 0.75);
+$sidenav-secondary-link-color: fade-out($white, 0.2);
+$sidenav-secondary-link-active-color: $white;
+$sidenav-secondary-icon-color: fade-out($white, 0.75);
+$sidenav-secondary-footer-bg: #ADB5BD /* https://coolors.co/palette/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529 */;
+
 // -- Sidenav Light
-$sidenav-light-bg: $gray-100;
-$sidenav-light-color: $gray-900;
-$sidenav-light-heading-color: $gray-500;
+$sidenav-light-bg: $light;
+$sidenav-light-color: $gray-700;
+$sidenav-light-heading-color: $primary;
 $sidenav-light-link-color: $sidenav-light-color;
-$sidenav-light-link-active-color: $primary;
+$sidenav-light-link-active-color: $secondary;
 $sidenav-light-icon-color: $gray-500;
 $sidenav-light-footer-bg: $gray-200;
 

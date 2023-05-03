@@ -1,0 +1,45 @@
+// 
+// Sidenav Secondary
+// 
+
+// Secondary theme for sidenav
+// Append .sb-sidenav-secondary to .sb-sidenav to use
+
+.sb-sidenav-secondary {
+    background-color: $sidenav-secondary-bg;
+    color: $sidenav-secondary-color;
+
+    .sb-sidenav-menu {
+        .sb-sidenav-menu-heading {
+            color: $sidenav-secondary-heading-color;
+        }
+
+        .nav-link {
+            color: $sidenav-secondary-link-color;
+
+            .sb-nav-link-icon {
+                color: $sidenav-secondary-icon-color;
+            }
+
+            .sb-sidenav-collapse-arrow {
+                color: $sidenav-secondary-icon-color;
+            }
+
+            &:hover {
+                color: $sidenav-secondary-link-active-color;
+            }
+
+            &.active {
+                color: $sidenav-secondary-link-active-color;
+
+                .sb-nav-link-icon {
+                    color: $sidenav-secondary-link-active-color;
+                }
+            }
+        }
+    }
+
+    .sb-sidenav-footer {
+        background-color: $sidenav-secondary-footer-bg;
+    }
+}

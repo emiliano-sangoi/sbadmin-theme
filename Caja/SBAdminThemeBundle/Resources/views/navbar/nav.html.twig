@@ -1,107 +1,63 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" id="navbar">
-    {#<a class="navbar-brand mr-0 mr-md-2" href=" {{ path ('caja_siafca_intranet_homepage')}}" title="Sistema de Afiliados a la Caja de Jubilaciones">
-        <span class="d-block font-weight-bold">SIAFCA</span>
-    </a>#}
-    <a class="navbar-brand" href="#">
-
+<nav class="sb-topnav navbar navbar-expand navbar-{{ color|default('primary') }} bg-{{ color|default('primary') }}" id="navbar">
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-3" href="https://santafe.gob.ar/" target="_blank">
         {% block navbar_logo %}
-            <img src="{{ bt_logo_gob_stafe|default('') }}" alt="Santa Fe">
+            <img src="{{ bt_logo_gob_stafe|default('') }}" class="img-fluid" alt="Santa Fe">
         {% endblock %}
         <div class="d-inline-block pl-lg-3">
-            <div class="app-name">
+            <div class="app-name text-primary fst-italic ">
                 {% block navbar_app_name %}
-                    {{ (bt_app_nombre|default('Nombre de la aplicación'))|upper }}
+                    <h4 class="d-inline-block mb-0 fw-bold">
+                            {{ (bt_app_nombre|default('app'))|upper }}
+                    </h4>
                 {% endblock %}
-                <small class="text-muted">
+                <small class="fs-6">
                     {% block navbar_app_version %}
                         {{ bt_app_version|default('v0.0') }}
                     {% endblock %}
                 </small>
             </div>
-
-            <div class="app-dependencia">
-                {% block navbar_app_dependencia %}
-                    {{ bt_app_dependencia|default('Caja de Jubilaciones y Pensiones de la Provincia') }}
-                {% endblock %}
-            </div>
         </div>
     </a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <!-- Sidebar Toggle-->
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 text-secondary" id="sidebarToggle" href="#!">
+        <i class="fas fa-bars"></i>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarCollapse">
 
-        <ul class="navbar-nav mr-auto">            
-        </ul>
 
-        <ul class="navbar-nav pr-2">
-            {#<li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Register</a>
-            </li>#}
-            {% block navItems %}                
-                {% include '@CajaSBAdminTheme/navbar/nav-items.html.twig' %}
-            {% endblock %}
-        </ul>
+    <!-- Navbar Search-->
+    {% block searchTop %}
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+                       aria-describedby="btnNavbarSearch"/>
+                <button class="btn btn-secondary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+    {% endblock %}
 
-        {% block searchTop %}
-        {% endblock %}
-
-        {% block iconsSystem %}
-
-            <ul class="list-inline custom-icon-middle mb-0">
-
-                {# Deshabilitar hasta que se implemente: #}
-                {#<li class="list-inline-item dropdown">
-
-                    <a href="#" class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown"
-                       aria-haspopup="true"
-                       aria-expanded="false" title="Notificaciones">
-                        <i class="material-icons">info</i>
-                    </a>
-
-                    <div class="dropdown-menu custom-dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Notificacion 1</a>
-                        <a class="dropdown-item" href="#">Notificacion 2</a>
-                        <a class="dropdown-item" href="#">Otras notificaciones</a>
-                    </div>
-
-                </li>#}    
-                <li class="nav-item dropdown border-left border-grey pl-lg-3">
-                    <a href="#" class="dropdown-toggle" id="dropdownMenuLinkPerson" data-toggle="dropdown"
-                       aria-haspopup="true"
-                       aria-expanded="false" title="Usuario logeado" style="text-decoration: none;">
-                        {#                        <i class="material-icons">person</i>#}
-                        <div class="d-inline-block">
-                            <span class="" style="font-size: 1.1rem;">{{ app.user.username }}</span>&nbsp;&nbsp;
-                        </div>
-                        <div class="d-inline-block">
-                            <i class="bi-person-circle" style="font-size: 1.1rem;"></i>   
-                        </div>                        
-                                             
-                    </a>
-                    <div class="dropdown-menu custom-dropdown-menu-right" aria-labelledby="dropdownMenuLinkPerson">
-                        <a class="dropdown-item get-info-usuario" href="#" data-username="{{ app.user ? app.user.username : '' }}">
-                            Mis datos
-                        </a>
-                        <a class="dropdown-item disabled" href="#">Configuración</a>                        
-                        <div class="dropdown-divider"></div>
-                        <a href="{{ logout_route is defined ? path(logout_route) : '#' }}" class="dropdown-item on-cerrar-sesion" title="Cerrar sesión">
-                            Cerrar sesi&oacute;n
-                        </a>
-                    </div>
+    <!-- Navbar-->
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
+                <i class="fas fa-user fa-fw"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#!">Ajustes</a></li>
+                <a class="dropdown-item get-info-usuario" href="#" data-username="{{ app.user ? app.user.username : '' }}">
+                    Mis datos
+                </a>
+                <li>
+                    <hr class="dropdown-divider"/>
                 </li>
-
+                <li>
+                    <a href="{{ logout_route is defined ? path(logout_route) : '#' }}" class="dropdown-item on-cerrar-sesion" title="Cerrar sesión">
+                        Cerrar sesi&oacute;n
+                    </a>
+                </li>
             </ul>
-
-        {% endblock %}
-
-
-    </div>
-
+        </li>
+    </ul>
 </nav>

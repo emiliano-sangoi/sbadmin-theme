@@ -5,12 +5,36 @@
 $gray-1: #e3e1e2;
 $gray-2: #e4e5e6;
 
+$scarlet: #cd392a; /* https://www.w3schools.com/colors/colors_australia.asp */
+$light: #DEE2E6; /* https://coolors.co/palette/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529 */
 $primary: #0077B6 ; /* https://coolors.co/palette/03045e-023e8a-0077b6-0096c7-00b4d8-48cae4-90e0ef-ade8f4-caf0f8 */
+$secondary: #6C757D; /* https://coolors.co/palette/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529 */
 $warning: #fca311; /* https://coolors.co/palette/000000-14213d-fca311-e5e5e5-ffffff  */
 $success: #20bf55; /* https://coolors.co/palette/20bf55-0b4f6c-01baef-fbfbff-757575 */
 $verde1: #A4C3B2; /* https://coolors.co/palette/6b9080-a4c3b2-cce3de-eaf4f4-f6fff8 */
-$danger: #F15025; /* https://coolors.co/palette/f15025-ffffff-e6e8e6-ced0ce-191919 */
+//$danger: #F15025; /* https://coolors.co/palette/f15025-ffffff-e6e8e6-ced0ce-191919 */
+$danger: $scarlet; /* https://coolors.co/palette/f15025-ffffff-e6e8e6-ced0ce-191919 */
 $info: #1B9AAA; /* https://coolors.co/palette/050505-1b9aaa-dddbcb-f5f1e3-ffffff */
+$sand: #DFCFBE; /* https://www.w3schools.com/colors/colors_2020.asp */
+$buttercream: #EFE1CE;
+$faded-denim: #798EA4;
+$sunlight: #EDD59E;
+$brilliant-white: #EDF1FF;
+$sweet-corn: #F0EAD6;
+$almost-mauve: #EADEDB;
+$pearl-gray: #f8f6ee;
+$mist-blue: #e0e6e2; /* https://www.w3schools.com/colors/colors_australia.asp*/
+$pewter: #596064; /* https://www.w3schools.com/colors/colors_australia.asp*/
+$cloud-gray: #c4c1b9; /* https://www.w3schools.com/colors/colors_australia.asp*/
+$khaki: #826843; /* https://www.w3schools.com/colors/colors_australia.asp*/
+$snow: #fffafa; /* https://html-color.codes/white */
+$white-smoke: #f5f5f5 ; /* https://html-color.codes/white */
+$alice-blue: #f0f8ff; /* https://html-color.codes/white */
+$buff: #c28a44; /* https://www.w3schools.com/colors/colors_australia.asp */
+$coffee: #ad7948; /* https://www.w3schools.com/colors/colors_australia.asp */
+$magnolia: #f1debe; /* https://www.w3schools.com/colors/colors_australia.asp */
+$beige: #c9aa8c; /* https://www.w3schools.com/colors/colors_australia.asp */
+
 
 //$secondary: #6c757d;
 
@@ -22,6 +46,75 @@ $white: white;
 // Import Bootstrap variables for use within theme
 @import "bootstrap/scss/functions.scss";
 @import "bootstrap/scss/variables.scss";
+
+$colors: (
+        "blue":        $blue,
+        "indigo":      $indigo,
+        "purple":      $purple,
+        "pink":        $pink,
+        "red":         $red,
+        "orange":      $orange,
+        "yellow":      $yellow,
+        "green":       $green,
+        "teal":        $teal,
+        "cyan":        $cyan,
+        "black":       $black,
+        "white":       $white,
+        "gray":        $gray-600,
+        "gray-dark":   $gray-800,
+        "sand":        $sand,
+        "buttercream": $buttercream,
+        "faded-denim": $faded-denim,
+        "sunlight": $sunlight,
+        "brilliant-white": $brilliant-white,
+        "sweet-corn": $sweet-corn,
+        "almost-mauve": $almost-mauve,
+        "pearl-gray" : $pearl-gray,
+        "mist-blue" : $mist-blue,
+        "pewter" : $pewter,
+        "cloud-gray" : $cloud-gray,
+        "khaki" : $khaki,
+        "snow" : $snow,
+        "white-smoke" : $white-smoke,
+        "alice-blue" : $alice-blue,
+        "buff" : $buff,
+        "coffee" : $coffee,
+        "magnolia" : $magnolia,
+        "beige" : $beige,
+);
+
+$theme-colors: (
+        "primary":    $primary,
+        "secondary":  $secondary,
+        "success":    $success,
+        "info":       $info,
+        "warning":    $warning,
+        "danger":     $danger,
+        "light":      $light,
+        "dark":       $dark,
+        "sand":       $sand,
+        "gray-500":   $gray-500,
+        "gray-600":   $gray-600,
+        "gray-700":   $gray-700,
+        "buttercream": $buttercream,
+        "faded-denim": $faded-denim,
+        "sunlight": $sunlight,
+        "brilliant-white": $brilliant-white,
+        "sweet-corn": $sweet-corn,
+        "almost-mauve": $almost-mauve,
+        "pearl-gray" : $pearl-gray,
+        "mist-blue" : $mist-blue,
+        "pewter" : $pewter,
+        "khaki" : $khaki,
+        "snow" : $snow,
+        "white-smoke" : $white-smoke,
+        "alice-blue" : $alice-blue,
+        "buff" : $buff,
+        "coffee" : $coffee,
+        "magnolia" : $magnolia,
+        "beige" : $beige
+
+);
 
 // Import spacing variables
 @import "./variables/spacing.scss";

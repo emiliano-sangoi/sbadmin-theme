@@ -11,45 +11,53 @@
     </title>
 
     {% block stylesheets %}
-        <!-- Select2 -->
-        <!-- https://select2.org/ -->
-        {# <link rel="stylesheet" href="{{ asset('node_modules/select2/dist/css/select2.min.css') }}" type="text/css">
-     <link rel="stylesheet" href="{{ asset('node_modules/select2-bootstrap-theme/dist/select2-bootstrap.min.css') }}" type="text/css"> #}
 
         <!-- Tags ayuda -->
         {#    <link rel="stylesheet" href="{{ asset('bundles/app/css/tags-ayuda.css') }}" type="text/css"> #}
-        {#        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet"/> #}
 
         <!-- Bootstrap icons -->
-        <link href="{{ asset('bundles/cajasbadmintheme/node_modules/bootstrap-icons/font/bootstrap-icons.css') }}"
-              rel="stylesheet"/>
+        <link href="{{ asset('bundles/cajasbadmintheme/node_modules/bootstrap-icons/font/bootstrap-icons.css') }}" rel="stylesheet"/>
 
         <!-- Bootstrap CSS + Theme CSS + Custom CSS -->
         <link href="{{ asset('bundles/cajasbadmintheme/css/styles.css') }}" rel="stylesheet"/>
 
         <!-- Font awesome -->
-        <link href="{{ asset('bundles/cajasbadmintheme/node_modules/@fortawesome/fontawesome-free/css/all.min.css') }}"
-              rel="stylesheet"/>
+        <link href="{{ asset('bundles/cajasbadmintheme/node_modules/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet"/>
 
         <!-- Bootstrap Tables -->
-        <link href="{{ asset('bundles/cajasbadmintheme/node_modules/bootstrap-table/dist/bootstrap-table.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/cajasbadmintheme/node_modules/bootstrap-table/dist/bootstrap-table.min.css') }}" rel="stylesheet" />
+
+        <!-- Select2 -->
+        <!-- https://select2.org/ -->
+        <link rel="stylesheet" href="{{ asset('bundles/cajasbadmintheme/node_modules/select2/dist/css/select2.min.css') }}" type="text/css">
+
+        <!-- select2-bootstrap-5-theme -->
+        <!-- https://apalfrey.github.io/select2-bootstrap-5-theme/ -->
+        <link href="{{ asset('bundles/cajasbadmintheme/node_modules/select2-bootstrap-5-theme/dist/select2-bootstrap-5-theme.min.css') }}" rel="stylesheet" />
 
     {% endblock %}
 
     <link rel="icon" href="https://www.santafe.gob.ar/assets/standard/images/favicon.ico">
 
+    {% block google_analytics %}
+    {% endblock %}
+
 </head>
 
 <body class="{{ body_css is defined ? body_css : 'sb-nav-fixed' }}">
 {% block body_content %}
-    {% include '@CajaSBAdminTheme/navbar/nav_original.html.twig' %}
+    {% embed '@CajaSBAdminTheme/navbar/nav.html.twig' with { 'color' : 'light' } %}
+
+        {#        {% block searchTop %}{% endblock %} #}
+
+    {% endembed %}
 
     <div id="layoutSidenav">
-        {% block sidenav_accordion %}
-            <div id="layoutSidenav_nav">
-                {% include '@CajaSBAdminTheme/sidenav/accordion_original.html.twig' %}
-            </div>
-        {% endblock %}
+        <div id="layoutSidenav_nav">
+            {% block sidenav_accordion %}
+                {% include '@CajaSBAdminTheme/sidenav/acordion_original.html.twig' with { 'color' : 'light' } %}
+            {% endblock %}
+        </div>
         <div id="layoutSidenav_content">
             {#        {% include '@CajaSBAdminTheme/sidenav/content_original.html.twig' %} #}
             <main>
@@ -61,7 +69,7 @@
                     {% block breadcrumb %}
                     {% endblock %}
 
-                    {% block content %}
+                    {% block body %}
 
                     {% endblock %}
                 </div>
@@ -96,6 +104,8 @@
 
         $('.formato-plata').mask('000.000.000.000.000,00', {reverse: true});
         $('.formato-plata2').mask("#.##0,00", {reverse: true});
+
+
     });
 
 </script>

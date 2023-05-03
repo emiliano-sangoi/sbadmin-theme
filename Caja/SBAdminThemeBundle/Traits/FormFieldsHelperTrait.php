@@ -139,17 +139,23 @@ trait FormFieldsHelperTrait {
     }
 
     public function addTextDateTime(FormBuilderInterface $builder, array $options = array(), $label = 'Fecha', $field = 'fecha', $disabled = false, $title = '', $required = true) {
-        $builder->add($field, DateTimeType::class, array(
-            'label' => $label,
-            'required' => $required,
-            'widget' => 'single_text',
-            'format' => 'dd/MM/yyyy HH:mm',
-            'attr' => array(
-                'class' => 'form-control',
-                'title' => $title
-            ),
-            'disabled' => $disabled
-        ));
+        if(!empty($options)){
+            $builder->add($field, DateTimeType::class, $options);
+        }else{
+            $builder->add($field, DateTimeType::class, array(
+                'label' => $label,
+                'label_attr' => array('class' => 'form-label'),
+                'required' => $required,
+                'widget' => 'single_text',
+                'format' => 'dd/MM/yyyy HH:mm',
+                'attr' => array(
+                    'class' => 'form-control',
+                    'title' => $title
+                ),
+                'disabled' => $disabled
+            ));
+
+        }
     }
 
     public function addTextDate(FormBuilderInterface $builder, array $options = array(), $label = 'Fecha', $field = 'fecha', $disabled = false, $placeholder = 'Ingrese una fecha', $required = false) {

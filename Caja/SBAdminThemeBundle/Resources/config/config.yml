@@ -32,3 +32,4 @@ twig:
         # estilos bootstrap de tablas: (table-striped, table-bordered,table-hover        
         global_table_class: 'table table-sm table-hover'
         bt_logo_gob_stafe: 'https://www.santafe.gob.ar/assets/standard/images/gob-santafe.png'
+#        bt_logo_gob_stafe: 'https://www.santafe.gob.ar/assets/app/portal2016/images/logo-header.png'

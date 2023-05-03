@@ -24,6 +24,17 @@
 @import "navigation/sidenav/sidenav-dark.scss";
 @import "navigation/sidenav/sidenav-light.scss";
 @import "navigation/sidenav/sidenav-primary.scss";
+@import "navigation/sidenav/sidenav-secondary.scss";
 
-// Plugins
-@import "plugins/simple-datatables.scss";
+@import "ayuda";
+@import "forms";
+@import "filtro";
+@import "breadcrumb";
+@import "buttons";
+@import "overrides";
+
+
+.w-30{ width: 30% }
+.w-35{ width: 35% }
+.w-40{ width: 40% }
+.w-45{ width: 45% }

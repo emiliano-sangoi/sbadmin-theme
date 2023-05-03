@@ -1,0 +1,5 @@
+
+
+.btn-beige {
+  @include button-variant($beige, $beige, $white);
+}
