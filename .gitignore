@@ -2,3 +2,6 @@ nbproject
 vendor
 Caja/SBAdminThemeBundle/Resources/.sass-cache
 Caja/SBAdminThemeBundle/Resources/scss/.sass-cache/
+Caja/SBAdminThemeBundle/Resources/.sass-cache/
+sass-cache/
+.idea

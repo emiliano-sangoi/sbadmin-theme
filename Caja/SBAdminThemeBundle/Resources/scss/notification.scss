@@ -1,0 +1,18 @@
+.notification-dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 100%;
+  background: $danger;
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  animation: blink 1s linear infinite;
+
+}
+
+
+@keyframes blink{
+  0%{opacity: 0.25;}
+  50%{opacity: .5;}
+  100%{opacity: 1;}
+}

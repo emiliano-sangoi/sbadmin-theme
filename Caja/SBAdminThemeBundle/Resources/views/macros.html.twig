@@ -159,6 +159,49 @@
     </div>
 {% endmacro %}
 
+{% macro notificacion_destacada(card_header, card_body, type = 'info') %}
+    <div class="card bg-{{ type }} text-white">
+        <div class="card-header">
+            {{ card_header|default('Sin título') }}
+        </div>
+        <div class="card-body h3 text-uppercase fw-bold">
+            {{ card_body|default(' - ') }}
+        </div>
+{#        <div class="card-footer d-flex align-items-center justify-content-between">#}
+{#            <a class="small text-white stretched-link" href="{{ card_link_href }}">#}
+{#                {{ card_link_label }}#}
+{#            </a>#}
+{#            <div class="small text-white">#}
+{#                <i class="fas fa-angle-right"></i>#}
+{#            </div>#}
+{#        </div>#}
+    </div>
+{% endmacro %}
+
+
+{% macro notificacion_navbar(card_header, card_body = '', type = 'info', icon = '') %}
+<li class="border-{{ type }}" style="border-left: 5px solid;">
+    <a class="dropdown-item py-3" href="#!">
+        <h6 class="mb-0">
+            <div class="row">
+                <div class="col-9 fw-bold text-{{ type }}">
+                    {% if icon != '' %}
+                        <i class="{{ icon }} text-{{ type }}"></i>&nbsp;
+                    {% endif %}{{ card_header }}
+                </div>
+                <div class="col-3">
+                    <span class="small text-{{ type }} float-end font-italic">8/3/2023</span>
+                </div>
+            </div>
+        </h6>
+        <hr class="border-{{ type }} my-1"/>
+        <p class="text-break small text-{{ type }} mb-0">
+            {{ card_body }}
+        </p>
+    </a>
+</li>
+{% endmacro %}
+
 <!-- ====================================================================================== -->
 <!-- Cards  -->
 {# Modelos mas complejos se pueden separar en plantillas en partials/ #}

@@ -1,68 +1,41 @@
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="dropDownOrganismos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown 1
+    <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-bell fa-fw text-secondary"></i>
+        <span class='notification-dot'></span>
     </a>
-    <div class="dropdown-menu" aria-labelledby="dropDownOrganismos">            
+    <ul class="dropdown-menu dropdown-menu-end py-0" aria-labelledby="navbarDropdown">
+        {% from '@CajaSBAdminTheme/macros.html.twig' import notificacion_navbar %}
 
-        <a class="dropdown-item" href="#">
-            Acción 1
-        </a>
+        {{ notificacion_navbar('Notificacion success', 'Aliquam feugiat enim at feugiat. Nulla luctus magna, sed tincidunt purus ullamcorper in...', 'success', 'fa-solid fa-check') }}
+        {{ notificacion_navbar('Notificacion info', 'Aliquam feugiat enim at feugiat. Nulla luctus magna, sed tincidunt purus ullamcorper in...', 'info', 'fa-solid fa-circle-info') }}
+        {{ notificacion_navbar('Notificacion danger', 'Aliquam feugiat enim at feugiat. Nulla luctus magna, sed tincidunt purus ullamcorper in...', 'danger', 'fa-solid fa-triangle-exclamation') }}
+        {{ notificacion_navbar('Notificacion warning', 'Aliquam feugiat enim at feugiat. Nulla luctus magna, sed tincidunt purus ullamcorper in...', 'warning') }}
 
-        <div class="dropdown-divider"></div>
-
-        <a class="dropdown-item" href="#">
-            Otra acción
-        </a>
-
-        <a class="dropdown-item" href="#">
-            <a class="dropdown-item" href="#">
-                Otra acción
+        <li class="py-2 text-center">
+            <a href="#" class="btn btn-sm btn-outline-secondary">
+                Ver todas
             </a>
-        </a>
-    </div>
+        </li>
+    </ul>
 </li>
-
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="dropDownLiquidaciones" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown 2
+    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+       aria-expanded="false">
+        <i class="fas fa-user fa-fw"></i>
     </a>
-    <div class="dropdown-menu" aria-labelledby="dropDownLiquidaciones">
-        <a class="dropdown-item" href="#">
-            Acción 1
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="#!">Ajustes</a></li>
+        <a class="dropdown-item get-info-usuario" href="#" data-username="{{ app.user ? app.user.username : '' }}">
+            Mis datos
         </a>
-        <a class="dropdown-item" href="#">
-            Acción 2
-        </a>
-        <a class="dropdown-item" href="#">
-            Acción 3
-        </a>
-        <a class="dropdown-item" href="#">
-            Acción 4
-        </a>
-        <!-- <div class="dropdown-divider"></div> -->
-    </div>
-</li>
-
-<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="dropDownOtras" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown 3
-    </a>
-    <div class="dropdown-menu" aria-labelledby="dropDownOtras">
-
-        <a class="dropdown-item" href="#">
-            Acción 1
-        </a>
-
-        <div class="dropdown-divider"></div>
-
-        <a class="dropdown-item" href="#">
-            Acción 2
-        </a>
-        
-        <a class="dropdown-item" href="#">
-            Acción 3
-        </a>
-
-
-    </div>
+        <li>
+            <hr class="dropdown-divider"/>
+        </li>
+        <li>
+            <a href="{{ logout_route is defined ? path(logout_route) : '#' }}" class="dropdown-item on-cerrar-sesion"
+               title="Cerrar sesión">
+                Cerrar sesi&oacute;n
+            </a>
+        </li>
+    </ul>
 </li>

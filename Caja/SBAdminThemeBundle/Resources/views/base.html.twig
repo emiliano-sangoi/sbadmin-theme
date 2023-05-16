@@ -31,6 +31,10 @@
         <!-- https://select2.org/ -->
         <link rel="stylesheet" href="{{ asset('bundles/cajasbadmintheme/node_modules/select2/dist/css/select2.min.css') }}" type="text/css">
 
+        <!-- DateTime Picker -->
+        <!-- https://getdatepicker.com/ -->
+        <link rel="stylesheet" href="{{ asset('bundles/cajasbadmintheme/node_modules/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css') }}" type="text/css">
+
         <!-- select2-bootstrap-5-theme -->
         <!-- https://apalfrey.github.io/select2-bootstrap-5-theme/ -->
         <link href="{{ asset('bundles/cajasbadmintheme/node_modules/select2-bootstrap-5-theme/dist/select2-bootstrap-5-theme.min.css') }}" rel="stylesheet" />
@@ -46,11 +50,9 @@
 
 <body class="{{ body_css is defined ? body_css : 'sb-nav-fixed' }}">
 {% block body_content %}
-    {% embed '@CajaSBAdminTheme/navbar/nav.html.twig' with { 'color' : 'light' } %}
-
-        {#        {% block searchTop %}{% endblock %} #}
-
-    {% endembed %}
+    {% block nav %}
+        {% include '@CajaSBAdminTheme/navbar/nav.html.twig' with { 'color' : 'light' } %}
+    {% endblock %}
 
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
