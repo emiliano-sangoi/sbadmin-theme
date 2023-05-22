@@ -5,4 +5,7 @@
 html,
 body {
     height: 100%;
+
+    //conic-gradient(from .5turn at bottom center, lightblue, white);
+    background: linear-gradient(to top, #dfe9f3 0%, white 100%);
 }

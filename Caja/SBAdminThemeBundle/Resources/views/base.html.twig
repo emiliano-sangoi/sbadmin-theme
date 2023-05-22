@@ -54,33 +54,35 @@
         {% include '@CajaSBAdminTheme/navbar/nav.html.twig' with { 'color' : 'light' } %}
     {% endblock %}
 
-    <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            {% block sidenav_accordion %}
-                {% include '@CajaSBAdminTheme/sidenav/acordion_original.html.twig' with { 'color' : 'light' } %}
-            {% endblock %}
+    {% block main_content %}
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                {% block sidenav_accordion %}
+                    {% include '@CajaSBAdminTheme/sidenav/acordion_original.html.twig' with { 'color' : 'light' } %}
+                {% endblock %}
+            </div>
+            <div id="layoutSidenav_content">
+                {#        {% include '@CajaSBAdminTheme/sidenav/content_original.html.twig' %} #}
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">
+                            {{ titulo_pagina | default('Sin título') }}
+                        </h1>
+
+                        {% block breadcrumb %}
+                        {% endblock %}
+
+                        {% block body %}
+
+                        {% endblock %}
+                    </div>
+                </main>
+
+
+                {% include '@CajaSBAdminTheme/footer.html.twig' %}
+            </div>
         </div>
-        <div id="layoutSidenav_content">
-            {#        {% include '@CajaSBAdminTheme/sidenav/content_original.html.twig' %} #}
-            <main>
-                <div class="container-fluid px-4">
-                    <h1 class="mt-4">
-                        {{ titulo_pagina | default('Sin título') }}
-                    </h1>
-
-                    {% block breadcrumb %}
-                    {% endblock %}
-
-                    {% block body %}
-
-                    {% endblock %}
-                </div>
-            </main>
-
-
-            {% include '@CajaSBAdminTheme/footer.html.twig' %}
-        </div>
-    </div>
+    {% endblock %}
 {% endblock %}
 {% block javascript %}
 {% include '@CajaSBAdminTheme/scripts.html.twig' %}
